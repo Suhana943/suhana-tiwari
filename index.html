@@ -1,577 +1,1737 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ridex - Car Rental Website</title>
-    <link rel="shortcut icon" href="https://i.postimg.cc/MHmHHWXK/favicon-1.png">
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <title>Leading Web Design & Development Company in Pune | SNDK Technologies</title>
+    <meta name="keywords" content="website design and development company in pune india, professional website design, Best digital marketing company in pune, digital marketing, digital marketing agency in pune, website design company in pune, professional digital marketing company in pune, ecommerce marketing company in pune india, Internet Marketing company in pune" />
+    <meta name="description" content="SNDK Technologies is a premier web design and development company in Pune, India, offering bespoke website solutions with unique designs and robust development for diverse applications. Our professional web developers leverage extensive skills and experience to deliver a wide range of design options tailored to client requirements.">
+    <meta name="author" content="SNDK Technologies">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS (Consolidated and Cleaned) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme-elements.css">
+    <link rel="stylesheet" href="css/theme-blog.css">
+    <link rel="stylesheet" href="css/theme-shop.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
+    <link rel="stylesheet" href="vendor/circle-flip-slideshow/css/component.css">
+    <link rel="stylesheet" type="text/css" href="css/sndk-web-development-company-in-pune-india.css">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="css/skins/default.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Google Analytics and Tag Manager Scripts -->
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-781447119"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-781447119');
+    </script>
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WVEEELV2YD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WVEEELV2YD');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5VTF6GM');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google reCAPTCHA CDN -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit"></script>
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/fd4f9227e5.js" crossorigin="anonymous"></script>
+
+    <!-- Inline Styles (Consolidated from various places) -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif !important;
+        }
+        .bg-overlay-black-80:before {
+            background: rgba(2, 45, 98, 0.8);
+            content: "";
+            left: 0;
+            height: 668px;
+            position: absolute;
+            width: 100%;
+            z-index: 0;
+        }
+        #contact-form-main input,
+        #contact-form-main textarea {
+            border-radius: 8px;
+            width: 100%;
+            height: 40px;
+            background-color: inherit;
+            border: 1px solid grey;
+            margin-top: 15px;
+            padding-left: 4px;
+            color: #000;
+        }
+        #contact-form-main textarea::placeholder {
+            color: grey;
+            opacity: 1;
+            font-size: 14px;
+        }
+        #contact-form-main input::placeholder {
+            color: grey;
+            opacity: 1;
+            font-size: 14px;
+        }
+        #contact-form-main {
+            text-align: center;
+            margin-top: 95px;
+            margin-bottom: 30px;
+        }
+        #contact-form-main button {
+            background: #ffff;
+            color: #08c;
+            display: inline-block;
+            border: none;
+            padding: 10px 20px;
+            text-transform: capitalize;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 25px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .outerdiv {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .innerdiv {
+            transform: scale(0.9);
+            display: grid;
+            grid-gap: 1.5rem;
+            grid-template-rows: repeat(2,22rem);
+            grid-template-columns: repeat(4,16rem);
+        }
+        .eachdiv {
+            padding: 1rem 2rem;
+            border-radius: 0.8rem;
+            box-shadow: 5px 5px 20px #6d6b6b6b;
+            color: white;
+        }
+        .div1 {
+            background: #2e96d1;
+            grid-column: 1/3;
+            grid-row: 1/2;
+            background-image: url(../double_quote.png); /* Relative path, ensure this image exists */
+            background-repeat: no-repeat;
+            background-position-x: 25rem;
+        }
+        .div2 {
+            background:#49556B;
+            grid-column: 3/4;
+            grid-row: 1/2;
+        }
+        .div3 {
+            background: white;
+            grid-column: 4/5;
+            grid-row: 1/3;
+            color: black;
+        }
+        .div4 {
+            background: white;
+            grid-column: 1/2;
+            grid-row: 2/3;
+            color: black;
+        }
+        .div5 {
+            background: #18202D;
+            grid-column: 2/4;
+            grid-row: 2/3;
+        }
+        .userdetails {
+            display: flex;
+        }
+        .imgbox {
+            margin-right: 1rem;
+        }
+        .imgbox img {
+            border-radius: 50%;
+            width: 2rem;
+            border: 2px solid #cec5c5;
+        }
+        .detbox {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .detbox p {
+            margin: 0;
+        }
+        .detbox .name {
+            color: hsl(0, 0%, 81%);
+            font-size: 0.9rem;
+            margin-bottom: 0.1rem;
+            font-weight: 600;
+        }
+        .detbox .name.dark {
+            color: #49505A;
+        }
+        .detbox .designation {
+            color: hsl(0, 0%, 81%);
+            opacity: 50%;
+            font-size: 0.8rem;
+        }
+        .detbox .designation.dark {
+            color: #49505A;
+        }
+        .review h4 {
+            font-size: 1.4rem;
+            color: #F3DEFF;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+        .review.dark h4 {
+            color:#4B5258;
+        }
+        .review p {
+            font-size: 0.95rem;
+            color: #F3DEFF;
+            font-weight: 500;
+            opacity: 50%;
+            line-height: 1.5;
+        }
+        .review.dark p {
+            color: #0e0e0e;
+        }
+        .owl-carousel.dots-title.dots-title-pos-2 .owl-dots {
+            left: 510px;
+        }
+        .owl-carousel.dots-title .owl-dots {
+            position: absolute;
+            margin-top: 0 !important;
+            top:675px !important;
+            left: 155px;
+        }
+        @media screen and (max-width: 768px) {
+            .carousel-item {
+                width: 180% !important;
+                margin-right: -100%;
+            }
+        }
+        .mob2 { display: none !important; }
+        @media only screen and (max-width: 600px) {
+            .mob2 { display: block !important; }
+            .mob { display: none; }
+        }
+        .feature-item-five {
+            height:176px;
+            box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: 7px;
+            margin-bottom: 30px;
+            background-color: white;
+        }
+        .feature-item-five h5 {
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            margin-bottom: 0;
+        }
+        .feature-item-five:hover {
+            background-size: cover;
+            -webkit-transform: translateY(-15px);
+            -ms-transform: translateY(-15px);
+            transform: translateY(-15px);
+            background: linear-gradient(310deg,#0cc 0%,#09c 100%);
+        }
+        .feature-item-five:hover h5, .feature-item-five:hover h5 a {
+            color: white;
+        }
+        .services-section {
+            background: aliceblue;
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+        .section-title h2 {
+            text-align: center;
+            padding-bottom: 40px;
+            padding-top: 0px;
+        }
+        .main-category {
+            background: lightgrey;
+        }
+        .main-category h2 {
+            text-align: center;
+            padding-bottom: 30px;
+            padding-top: 50px;
+        }
+        .custom-text-box-image {
+            width: 100%;
+            height: auto;
+            max-width: 500px; /* Adjust as needed */
+            margin: 0 auto;
+            display: block;
+        }
+        .package-box {
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .package-box:hover {
+            transform: translateY(-10px);
+        }
+        .package-box.alt {
+            background: linear-gradient(310deg,#0cc 0%,#09c 100%);
+            color: white;
+        }
+        .package-box.alt h4, .package-box.alt p {
+            color: white !important;
+        }
+        .package-box .xl-text {
+            font-size: 2.5em; /* Larger font for price */
+            font-weight: 700;
+        }
+        .package-box .hi-feature {
+            font-weight: 600;
+            color: #555;
+        }
+        .package-box.alt .hi-feature {
+            color: #e0e0e0;
+        }
+        .package-box .btn-modern {
+            background: #08c;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 15px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .package-box .btn-modern:hover {
+            background: #006699;
+        }
+        /* Modal specific styles */
+        .modal-header {
+            background: linear-gradient(310deg,#0cc 0%,#09c 100%);
+            color: white;
+            border-radius: 25px 25px 0 0;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h4 {
+            margin: 0;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .modal-header .close {
+            color: white;
+            opacity: 1;
+            font-size: 2em;
+            text-shadow: none;
+        }
+        .modal-body {
+            background: #ffffffd9;
+            padding: 10px 25px;
+        }
+        /* Google Form Specific Styles */
+        .google-form-container {
+            width: 100%;
+            max-width: 600px; /* Adjust max-width as needed */
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden; /* Ensures iframe corners are rounded if parent has border-radius */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .google-form-container iframe {
+            width: 100%;
+            height: 800px; /* Adjust height as needed for your form */
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <header class="header" data-header>
-        <div class="container">
-            <div class="overlay" data-overlay></div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VTF6GM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-            <a href="/" class="logo" aria-label="Ridex Home">
-                <img src="https://i.postimg.cc/XqGZ2KDt/logo-1.png" alt="Ridex logo">
-            </a>
-
-            <nav class="navbar" data-navbar>
-                <ul class="navbar-list">
-                    <li><a href="#home" class="navbar-link" data-nav-link>Home</a></li>
-                    <li><a href="#featured-car" class="navbar-link" data-nav-link>Explore Cars</a></li>
-                    <li><a href="#about-us" class="navbar-link" data-nav-link>About Us</a></li>
-                    <li><a href="#blog" class="navbar-link" data-nav-link>Blog</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <div class="header-contact">
-                    <a href="tel:+188002345678" class="contact-link">8 800 234 56 78</a>
-                    <span class="contact-time">Mon - Sat: 09:00 am - 06:00 pm</span>
+    <div class="body">
+        <header id="header" class="header-transparent header-effect-shrink header-no-border-bottom" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 70, 'stickyChangeLogo': false, 'stickyHeaderContainerHeight': 80}">
+            <div class="header-body" style="position: fixed; background: #345781!important; top: 0px;">
+                <div class="header-container container">
+                    <header class="header col-lg-12 col-md-12">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9">
+                                <div class="header-row">
+                                    <div class="header-column">
+                                        <div class="header-row">
+                                            <div class="header-logo">
+                                                <a href="#">
+                                                    <img alt="SNDK Technologies Logo" data-sticky-width="85" data-sticky-height="40" data-sticky-top="25" src="img/SNDK-Original-logo-svg-reverseclr (1).svg">
+                                                </a>
+                                                <a href="tel:7770005075" class="getin1"><i class="fa fa-phone getin-call1" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                                <div class="header header-transparent sticky-top" style="top: 26px;">
+                                    <div class="header-row">
+                                        <nav class="header-nav-top">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                                                    <a href="tel:+91 777 000 5075" class="wow fadeInLeftShorter animated"
+                                                       id="sliders-1" data-wow-delay="1s" data-appear-animation-delay="500"
+                                                       style="visibility:visible;animation-delay:1s;animation-name:fadeInLeft;background: linear-gradient(310deg,#0cc 0%,#09c 100%);    color: #fff;    display: inline-block;    border: none;    padding: 10px 20px;    text-transform: capitalize;    border-radius: 20px;    font-size: 14px;    font-weight: 600;    cursor: pointer;">
+                                                        <i class="fas fa-phone" style="transform: rotate(90deg);"></i> +91 777 000 5075
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
                 </div>
+            </div>
+        </header>
 
-                <a href="#featured-car" class="btn btn-primary" aria-label="Explore Cars">
-                    <ion-icon name="car-outline"></ion-icon>
-                    <span>Explore Cars</span>
-                </a>
+        <main role="main">
+            <section id="carousel" style="padding-top:54px;">
+                <div class="banner-04 align-items-center d-flex space-ptb bg-holder h-900 h-sm-900 bg-overlay-black-80"
+                     data-jarallax="{&quot;speed&quot;: 0.4}"
+                     style="background-image: url('https://uploads.onecompiler.io/43qbxf9xj/43qbxefpn/Screenshot%202025-07-11%20121040.png'); background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; position: relative; top: 0px; left: 0px; width: 100%; height: 600px; overflow: hidden; pointer-events: none; margin-top: 0px; transform: translate3d(0px, 0px, 0px);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8" style="padding-top:164px;background: #345781!important;">
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <h3> Essential Informative Website <br> from <i class="fas fa-rupee-sign" style="color:orange">12,999<sup>*</sup></i> </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3> Dynamic Business <br> Website from <i class="fas fa-rupee-sign" style="color:orange"> 39,999<sup>*</sup></i></h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3> Professional E-Commerce <br> Platform from <i class="fas fa-rupee-sign" style="color:orange">59,999<sup>*</sup></i> </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3> Marketplace Listing <br> Solutions from <i class="fas fa-rupee-sign" style="color:orange">89,999<sup>*</sup></i> <span>(Starting From)</span></h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3> Edu-Tech <br> Portal Development from <i class="fas fa-rupee-sign" style="color:orange"> 1,20,000<sup>*</sup> </i> <span>(Starting From)</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="free-domain">
+                                    <h5 style="color:orange;font-weight:bold;"> India's leading website development company.</h5>
+                                    <div class="two-line shadow weight-100" style="max-width:440px;padding: 20px 16px; background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);color:#fff;border-radius: 25px;-webkit-transition: all 0.3s ease-out;transition:all 0.3s ease-out;margin-top:50px;margin-bottom: 50px;">
+                                        <a href="tel:+91 777 000 5075">
+                                            <div class="d-flex flex-nowrap align-content-center">
+                                                <i class=" align-self-center bold"></i>
+                                                <p class="mb-0 ml-5 align-self-center f-18 " style="color:#fff;font-size:16px;font-weight:bold;">Project Discussion: +91 777 000 5075</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" id="contact-form-main" style="text-align:center;border-radius: 30px;background: #345781!important;">
+                                <div style="margin: 0;    padding: 17px 30px 15px;    background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);    border-radius: 25px 25px 0 0;">
+                                    <h5 style="color:#fff;text-align:center;padding-top:10px;text-transform:capitalize;font-weight:700;letter-spacing:1px;"> Connect With Us</h5>
+                                </div>
+                                <div style="background: #ffffffd9;    padding: 10px 25px;">
+                                    <form method="post" action="landing-page-main-form.php">
+                                        <input type="text" name="name" placeholder="Your Name" required="">
+                                        <input type="text" name="phone"  placeholder="Mobile Number" required="">
+                                        <input type="text" name="email1" placeholder="Email Address">
+                                        <textarea placeholder="Your Message" col="5" type="text" name="message"></textarea>
+                                        <div style="margin-bottom: 20px;    padding: 0px 30px 22px;    background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);    border-radius: 0 0 25px 25px;">
+                                            <center><button type="submit"> Submit Inquiry </button></center>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                <a href="#" class="btn btn-secondary user-btn" aria-label="Profile">
-                    <ion-icon name="person-outline"></ion-icon>
-                </a>
+            <section class="services-section section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2 style="text-align:center;padding-bottom:40px;padding-top: 0px;" class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Our Process</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-12"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12" style="background-image:url('img/DESIGN.png');height: 175px;background-repeat: no-repeat;background-position: center;"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12" style="background-image:url('img/DEVELOP.png');height: 175px;background-repeat: no-repeat;background-position: center;"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12" style="background-image:url('img/deliver.png');height: 175px;background-repeat: no-repeat;background-position: center;"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12" style="background-image:url('img/SUPPORT.png');height: 175px;background-repeat: no-repeat;background-position: center;"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12"></div>
+                    </div>
+                </div>
+            </section>
 
-                <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
-                    <span class="one"></span>
-                    <span class="two"></span>
-                    <span class="three"></span>
-                </button>
+            <section class="container-fluid main-category" id="website">
+                <h2 style="text-align:center;padding-bottom:30px;padding-top:50px;" class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Key Web Design Features</h2>
+                <div class="row row-cols-xl-6 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+                    <div class="row">
+                        <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+                            <img src="img/banner-image.png" class="custom-text-box-image img-fluid" alt="Web Design Features Banner">
+                        </div>
+                        <div class="col-sm-0 col-md-2">
+                            <div class="col wow fadeInUp delay-0-2s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/Responsive design.png" alt="Responsive design icon" style="width:60px">
+                                    <h5><a href="#">Responsive Design</a></h5>
+                                </div>
+                            </div>
+                            <div class="col wow fadeInUp delay-0-3s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/Powerful Customization.png" alt="Powerful Customization icon" style="width:60px">
+                                    <h5><a href="#">Robust Customization</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-0 col-md-2">
+                            <div class="col wow fadeInUp delay-0-4s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/Cool & modern animations.png" alt="Modern animations icon" style="width:60px">
+                                    <h5><a href="#">Modern Animations</a></h5>
+                                </div>
+                            </div>
+                            <div class="col wow fadeInUp delay-0-5s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/SEO Friendly Coding.png" alt="SEO Friendly Coding icon" style="width:60px">
+                                    <h5><a href="#">SEO-Optimized Code</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-0 col-md-2">
+                            <div class="col wow fadeInUp delay-0-6s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/Best Technical supports.png" alt="Technical support icon" style="width:60px">
+                                    <h5><a href="#">Dedicated Technical Support</a></h5>
+                                </div>
+                            </div>
+                            <div class="col wow fadeInUp delay-0-7s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/layout-svgrepo-com 1.png" alt="Varied Layouts & parallax icon" style="width:60px">
+                                    <h5><a href="#">Diverse Layouts & Parallax</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-fluid py-5" id="professional-website">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-lg-12 col-md-12">
+                            <h2 style="text-align:center;padding-bottom:70px;" class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Establish Your Online Presence with Our Tailored Pricing Plans</h2>
+                            <div class="row">
+                                <!-- New Basic Landing Page for ₹1000 -->
+                                <div class="col-sm-12 col-md-6 col-lg-3 hvr-grow">
+                                    <div class="package-box text-center shadow">
+                                        <h4 class="clr-font"><span>Introductory</span> Landing Page </h4>
+                                        <div class="p-inner-box" style="height:630px;">
+                                            <p>
+                                                <i class="fas fa-rupee-sign"></i>
+                                                <span class="xl-text"> 1,000<sup>*</sup> </span>
+                                                <span><del><i class="fas fa-rupee-sign"></i> 2,500</del></span>
+                                            </p>
+                                            <p class="hi-feature"><span>Single Page Design</span> | <span>Essential Contact Information </span></p>
+                                            <p> Static Content Integration </p>
+                                            <p> Basic Text & Imagery </p>
+                                            <p> Mobile Responsiveness </p>
+                                            <p> Limited Technical Assistance </p>
+                                            <p> *Domain & Hosting Excluded </p>
+                                            <p style="margin-top: 10px; font-size: 12px; color: #888;">(This foundational package provides a simple, static one-page design. Domain and hosting services are separate.)</p>
+                                            <div style="margin-top:100px;">
+                                                <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal" style="border-radius: 15px;">
+                                                    Request a Demo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Existing Starter Static Website (now Standard) -->
+                                <div class="col-sm-12 col-md-6 col-lg-3 hvr-grow">
+                                    <div class="package-box text-center shadow">
+                                        <h4 class="clr-font"><span> Standard </span> Business Website </h4>
+                                        <div class="p-inner-box" style="height:630px;">
+                                            <p>
+                                                <i class="fas fa-rupee-sign"></i>
+                                                <span class="xl-text"> 12,999<sup>*</sup> </span>
+                                                <span><del><i class="fas fa-rupee-sign"></i> 18,000</del></span>
+                                            </p>
+                                            <p class="hi-feature"><span>Complimentary Domain & Hosting </span> | <span>Mobile-Optimized Design </span></p>
+                                            <p> Up to 5 Pages </p>
+                                            <p> Professional Content Creation </p>
+                                            <p> Custom Website Graphics</p>
+                                            <p>Live Chat Integration</p>
+                                            <p> Foundational SEO Services </p>
+                                            <p> Business Email Setup</p>
+                                            <p> Fully Responsive Design</p>
+                                            <p>24/7 Support</p>
+                                            <div style="margin-top:159px;">
+                                                <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal" style="border-radius: 15px;">
+                                                    Request a Demo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Existing Professional Static Website (now Advanced) -->
+                                <div class="col-sm-12 col-md-6 col-lg-3 hvr-grow">
+                                    <div class="package-box alt text-center shadow" style="background: linear-gradient(310deg,#0cc 0%,#09c 100%);">
+                                        <h4 class="clr-font"  style="color:#fff;"><span>Advanced</span> Corporate Website </h4>
+                                        <div class="p-inner-box" style="height:630px;">
+                                            <p>
+                                                <i class="fas fa-rupee-sign"></i>
+                                                <span class="xl-text">29,999<sup>*</sup></span>
+                                                <span><del><i class="fas fa-rupee-sign"></i> 35,000</del></span>
+                                            </p>
+                                            <p class="hi-feature"><span>Complimentary Domain & Hosting</span> | <span>Mobile-Optimized Design</span></p>
+                                            <p>10 - 12 Pages </p>
+                                            <p> Comprehensive Content Development </p>
+                                            <p> Bespoke Website Graphics</p>
+                                            <p>Live Chat Integration</p>
+                                            <p> Enhanced SEO Services </p>
+                                            <p> Professional Business Email</p>
+                                            <p> Fully Responsive Design</p>
+                                            <p>24/7 Priority Support</p>
+                                            <p> SSL Security Certificate </p>
+                                            <p> Social Media Integration </p>
+                                            <p> </p>
+                                            <div style="margin-top:85px;">
+                                                <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal" style="border-radius: 15px;">
+                                                    Request a Demo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Existing Professional E-Commerce (now Premium) -->
+                                <div class="col-sm-12 col-md-6 offset-md-3 offset-lg-0 col-lg-3 hvr-grow">
+                                    <div class="package-box text-center shadow">
+                                        <h4 class="clr-font"><span>Premium</span> E-Commerce Solution </h4>
+                                        <div class="p-inner-box" style="height:630px;">
+                                            <p>
+                                                <i class="fas fa-rupee-sign"></i>
+                                                <span class="xl-text">56,999<sup>*</sup></span>
+                                                <span><del><i class="fas fa-rupee-sign"></i> 75,000</del></span>
+                                            </p>
+                                            <p class="hi-feature"><span>Complimentary Domain & Hosting</span> | <span>Mobile-Optimized Design</span></p>
+                                            <p>Integrated Shopping Cart</p>
+                                            <p>Secure Payment Gateway</p>
+                                            <p>User Login & Comprehensive Reports</p>
+                                            <p>Efficient Order Management </p>
+                                            <p> Customer Wishlist Functionality </p>
+                                            <p> Unlimited Product Listings </p>
+                                            <p>Live Chat Integration</p>
+                                            <p> Advanced SEO Optimization </p>
+                                            <p> Professional Business Email</p>
+                                            <p> Fully Responsive Design</p>
+                                            <p>24/7 Priority Support</p>
+                                            <p> SSL Security Certificate </p>
+                                            <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal" style="border-radius: 15px;">
+                                                Request a Demo
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal HTML -->
+        <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Enquiry Form</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="contact-form-main" style="margin-top: -6px;text-align:center;border-radius: 30px;margin-bottom: -27px;">
+                            <div style="margin: 0;    padding: 17px 30px 15px;    background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);    border-radius: 25px 25px 0 0;">
+                                <h5 style="color:#fff;text-align:center;padding-top:10px;text-transform:capitalize;font-weight:700;letter-spacing:1px;"> Feel Free To Contact Us</h5>
+                            </div>
+                            <div style="background: #ffffffd9;    padding: 10px 25px;">
+                                <form method="post" action="landing-page-main-form.php" >
+                                    <input type="text" name="name" placeholder="Your Name" required="">
+                                    <input type="text" name="phone"  placeholder="Mobile Number" required="">
+                                    <input type="text" name="email1" placeholder="Email Address">
+                                    <textarea placeholder="Your Message" col="5" type="text" name="message"></textarea>
+                                </div>
+                                <div style="margin-bottom: 20px;    padding: 0px 30px 22px;    background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);    border-radius: 0 0 25px 25px;">
+                                    <center><button type="submit"> Submit Inquiry </button></center>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
 
-    <main>
-        <section class="section hero" id="home" aria-labelledby="hero-title">
+        <!-- Contact Section - Re-integrating Google Form -->
+        <section class="contact" id="contact" style="padding-top: 120px; padding-bottom: 120px;">
             <div class="container">
-                <div class="hero-content">
-                    <h1 class="h1 hero-title" id="hero-title">The easy way to take over a lease</h1>
-                    <p class="hero-text">Live in New York, New Jersey, and Connecticut</p>
+                <div class="contact-content">
+                    <h2 class="h2 contact-title" style="text-align: center;">Partner with Us to Scale Your Brand</h2>
+                    <p class="contact-text-intro" style="text-align: center; color: #555; font-size: 18px; margin-bottom: 40px;">
+                        Have a project in mind or require a consultation? Please complete the form below, or contact our team directly.
+                    </p>
+                    <figure class="contact-banner" style="max-width: 400px; margin: 0 auto 50px;"><img src="https://i.postimg.cc/4dmYSY4F/contact.png" alt="contact banner" style="width: 100%;"></figure>
                 </div>
 
-                <div class="hero-banner">
+                <div class="contact-form-wrapper">
+                    <div class="contact-numbers" style="text-align: center; margin-bottom: 40px;">
+                        <p style="color: #0c0c0c; font-size: 20px; font-weight: 600; margin-bottom: 10px;">Reach us directly:</p>
+                        <a href="tel:+917770984861" style="color: #FF6B6B; font-size: 26px; font-weight: 700; display: block; margin-bottom: 5px;">+91 7770984861</a>
+                        <a href="tel:+919422410867" style="color: #FF6B6B; font-size: 26px; font-weight: 700; display: block; margin-bottom: 5px;">+91 9422410867</a>
                     </div>
 
-                <form action="#" method="get" class="hero-form">
-                    <div class="input-wrapper">
-                        <label for="car-model" class="input-label">Car, model or brand</label>
-                        <input type="text" name="car-model" id="car-model" class="input-field" placeholder="What car are you looking for?">
+                    <h3 class="h3 contact-title" style="text-align: center; margin-top: 30px;">Submit Your Inquiry</h3>
+                    <div class="google-form-container">
+                        <!-- IMPORTANT: Replace the 'src' attribute below with the actual embed URL of your Google Form.
+                            To get this:
+                            1. Create your form in Google Forms.
+                            2. Click "Send" (top right).
+                            3. Go to the "Embed HTML" tab (the <> icon).
+                            4. Copy the 'src' URL from the iframe code provided.
+                            5. Adjust the 'height' attribute in the iframe style if your form is longer or shorter.
+                        -->
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_EXAMPLE_FORM_ID_HERE/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                     </div>
-
-                    <div class="input-wrapper">
-                        <label for="monthly-payment" class="input-label">Max monthly payment</label>
-                        <input type="number" name="monthly-payment" id="monthly-payment" class="input-field" placeholder="Add an amount in $" min="0">
-                    </div>
-
-                    <div class="input-wrapper">
-                        <label for="make-year" class="input-label">Make year</label>
-                        <input type="number" name="year" id="make-year" class="input-field" placeholder="Add a minimal make year" min="1900" max="2025">
-                    </div>
-
-                    <button type="submit" class="btn btn-submit">Search</button>
-                </form>
-            </div>
-        </section>
-
-        <section class="section featured-car" id="featured-car" aria-labelledby="featured-car-title">
-            <div class="container">
-                <div class="title-wrapper">
-                    <h2 class="h2 section-title" id="featured-car-title">Featured Cars</h2>
-                    <a href="#" class="featured-car-link">
-                        <span>View More</span>
-                        <ion-icon name="arrow-forward-outline"></ion-icon>
-                    </a>
                 </div>
-
-                <ul class="featured-car-list grid-list">
-                    <li>
-                        <div class="featured-car-card">
-                            <figure class="card-banner">
-                                <img src="https://i.postimg.cc/L4vD1v5m/car-1.jpg" alt="Toyota RAV4 2021" loading="lazy" width="440" height="300" class="w-100">
-                            </figure>
-
-                            <div class="card-content">
-                                <div class="card-title-wrapper">
-                                    <h3 class="h3 card-title"><a href="#">Toyota RAV4</a></h3>
-                                    <span class="year">2021</span>
-                                </div>
-
-                                <ul class="card-list">
-                                    <li class="card-list-item">
-                                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">4 People</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Hybrid</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="speedometer-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">6.1km / 1-litre</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="hardware-chip-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Automatic</span>
-                                    </li>
-                                </ul>
-
-                                <div class="card-price-wrapper">
-                                    <p class="card-price"><strong>$448</strong> / month</p>
-                                    <button class="btn fav-btn" aria-label="Add Toyota RAV4 2021 to favorite list">
-                                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-                                    <button class="btn btn-action">Rent Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="featured-car-card">
-                            <figure class="card-banner">
-                                <img src="https://i.postimg.cc/Z5cJtCLb/car-2.jpg" alt="BMW 3 Series 2019" loading="lazy" width="440" height="300" class="w-100">
-                            </figure>
-
-                            <div class="card-content">
-                                <div class="card-title-wrapper">
-                                    <h3 class="h3 card-title"><a href="#">BMW 3 Series</a></h3>
-                                    <span class="year">2019</span>
-                                </div>
-
-                                <ul class="card-list">
-                                    <li class="card-list-item">
-                                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">4 People</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Gasoline</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="speedometer-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">8.2km / 1-litre</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="hardware-chip-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Automatic</span>
-                                    </li>
-                                </ul>
-
-                                <div class="card-price-wrapper">
-                                    <p class="card-price"><strong>$350</strong> / month</p>
-                                    <button class="btn fav-btn" aria-label="Add BMW 3 Series 2019 to favorite list">
-                                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-                                    <button class="btn btn-action">Rent Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="featured-car-card">
-                            <figure class="card-banner">
-                                <img src="https://i.postimg.cc/yN8sVsfF/car-3.jpg" alt="Volkswagen T-Cross 2020" loading="lazy" width="440" height="300" class="w-100">
-                            </figure>
-
-                            <div class="card-content">
-                                <div class="card-title-wrapper">
-                                    <h3 class="h3 card-title"><a href="#">Volkswagen T-Cross</a></h3>
-                                    <span class="year">2020</span>
-                                </div>
-
-                                <ul class="card-list">
-                                    <li class="card-list-item">
-                                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">4 People</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Gasoline</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="speedometer-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">5.3km / 1-litre</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="hardware-chip-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Automatic</span>
-                                    </li>
-                                </ul>
-
-                                <div class="card-price-wrapper">
-                                    <p class="card-price"><strong>$400</strong> / month</p>
-                                    <button class="btn fav-btn" aria-label="Add Volkswagen T-Cross 2020 to favorite list">
-                                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-                                    <button class="btn btn-action">Rent Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="featured-car-card">
-                            <figure class="card-banner">
-                                <img src="https://i.postimg.cc/zf25v6M4/car-4.jpg" alt="Cadillac Escalade 2020" loading="lazy" width="440" height="300" class="w-100">
-                            </figure>
-
-                            <div class="card-content">
-                                <div class="card-title-wrapper">
-                                    <h3 class="h3 card-title"><a href="#">Cadillac Escalade</a></h3>
-                                    <span class="year">2020</span>
-                                </div>
-
-                                <ul class="card-list">
-                                    <li class="card-list-item">
-                                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">4 People</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Gasoline</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="speedometer-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">7.7km / 1-litre</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="hardware-chip-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Automatic</span>
-                                    </li>
-                                </ul>
-
-                                <div class="card-price-wrapper">
-                                    <p class="card-price"><strong>$620</strong> / month</p>
-                                    <button class="btn fav-btn" aria-label="Add Cadillac Escalade 2020 to favorite list">
-                                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-                                    <button class="btn btn-action">Rent Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="featured-car-card">
-                            <figure class="card-banner">
-                                <img src="https://i.postimg.cc/SRCpZssp/car-5.jpg" alt="BMW 4 Series GTI 2021" loading="lazy" width="440" height="300" class="w-100">
-                            </figure>
-
-                            <div class="card-content">
-                                <div class="card-title-wrapper">
-                                    <h3 class="h3 card-title"><a href="#">BMW 4 Series GTI</a></h3>
-                                    <span class="year">2021</span>
-                                </div>
-
-                                <ul class="card-list">
-                                    <li class="card-list-item">
-                                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">4 People</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Gasoline</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="speedometer-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">7.6km / 1-litre</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="hardware-chip-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Automatic</span>
-                                    </li>
-                                </ul>
-
-                                <div class="card-price-wrapper">
-                                    <p class="card-price"><strong>$530</strong> / month</p>
-                                    <button class="btn fav-btn" aria-label="Add BMW 4 Series GTI 2021 to favorite list">
-                                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-                                    <button class="btn btn-action">Rent Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="featured-car-card">
-                            <figure class="card-banner">
-                                <img src="https://i.postimg.cc/tRxyRrzm/car-6.jpg" alt="BMW 4 Series 2019" loading="lazy" width="440" height="300" class="w-100">
-                            </figure>
-
-                            <div class="card-content">
-                                <div class="card-title-wrapper">
-                                    <h3 class="h3 card-title"><a href="#">BMW 4 Series</a></h3>
-                                    <span class="year">2019</span>
-                                </div>
-
-                                <ul class="card-list">
-                                    <li class="card-list-item">
-                                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">4 People</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="flash-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Gasoline</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="speedometer-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">7.2km / 1-litre</span>
-                                    </li>
-                                    <li class="card-list-item">
-                                        <ion-icon name="hardware-chip-outline" aria-hidden="true"></ion-icon>
-                                        <span class="card-item-text">Automatic</span>
-                                    </li>
-                                </ul>
-
-                                <div class="card-price-wrapper">
-                                    <p class="card-price"><strong>$490</strong> / month</p>
-                                    <button class="btn fav-btn" aria-label="Add BMW 4 Series 2019 to favorite list">
-                                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-                                    <button class="btn btn-action">Rent Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </section>
 
-        <section class="section get-start" aria-labelledby="get-start-title">
-            <div class="container">
-                <h2 class="h2 section-title" id="get-start-title">Get Started with 4 simple steps</h2>
-
-                <ul class="get-start-list grid-list">
-                    <li>
-                        <div class="get-start-card">
-                            <div class="card-icon icon-1"><ion-icon name="person-add-outline" aria-hidden="true"></ion-icon></div>
-                            <h3 class="h3 card-title">Create a Profile</h3>
-                            <p class="card-text">Fill in the required fields with accurate information.</p>
-                            <a href="#" class="card-link">Get Started <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="get-start-card">
-                            <div class="card-icon icon-2"><ion-icon name="car-outline" aria-hidden="true"></ion-icon></div>
-                            <h3 class="h3 card-title">Tell us what car you want</h3>
-                            <p class="card-text">Consider what you need in a car, such as size, features, and budget.</p>
-                            </div>
-                    </li>
-
-                    <li>
-                        <div class="get-start-card">
-                            <div class="card-icon icon-3"><ion-icon name="person-outline" aria-hidden="true"></ion-icon></div>
-                            <h3 class="h3 card-title">Match your needs with the seller</h3>
-                            <p class="card-text">We'll analyze your preferences to identify sellers who can fulfill your needs.</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="get-start-card">
-                            <div class="card-icon icon-4"><ion-icon name="card-outline" aria-hidden="true"></ion-icon></div>
-                            <h3 class="h3 card-title">Make a deal</h3>
-                            <p class="card-text">Finalize your ideal match for a smooth and satisfying experience.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section blog" id="blog" aria-labelledby="blog-title">
-            <div class="container">
-                <h2 class="h2 section-title" id="blog-title">Our Blog</h2>
-
-                <ul class="blog-list has-scrollbar grid-list">
-                    <li>
-                        <div class="blog-card">
-                            <figure class="card-banner">
-                                <a href="#">
-                                    <img src="https://i.postimg.cc/PrFY1HPy/blog-1.jpg" alt="Opening new offices" class="w-100" loading="lazy">
-                                </a>
-                                <a href="#" class="btn card-badge">Company</a>
-                            </figure>
-
-                            <div class="card-content">
-                                <h3 class="h3 card-title"><a href="#">Opening new offices</a></h3>
-                                <div class="card-meta">
-                                    <div class="publish-date">
-                                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                                        <time datetime="2025-07-09">July 09, 2025</time>
-                                    </div>
-                                    <div class="comment-count">
-                                        <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
-                                        <span>114</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="blog-card">
-                            <figure class="card-banner">
-                                <a href="#">
-                                    <img src="https://i.postimg.cc/x1wmFPGb/blog-2.jpg" alt="Which cars are most vulnerable" class="w-100" loading="lazy">
-                                </a>
-                                <a href="#" class="btn card-badge">Repair</a>
-                            </figure>
-
-                            <div class="card-content">
-                                <h3 class="h3 card-title"><a href="#">Which cars are most vulnerable</a></h3>
-                                <div class="card-meta">
-                                    <div class="publish-date">
-                                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                                        <time datetime="2025-07-01">July 01, 2025</time>
-                                    </div>
-                                    <div class="comment-count">
-                                        <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
-                                        <span>151</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="blog-card">
-                            <figure class="card-banner">
-                                <a href="#">
-                                    <img src="https://i.postimg.cc/gJdZGkTz/blog-3.jpg" alt="Statistic showed average car age" class="w-100" loading="lazy">
-                                </a>
-                                <a href="#" class="btn card-badge">Cars</a>
-                            </figure>
-
-                            <div class="card-content">
-                                <h3 class="h3 card-title"><a href="#">Statistic showed average car age</a></h3>
-                                <div class="card-meta">
-                                    <div class="publish-date">
-                                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                                        <time datetime="2025-06-21">June 21, 2025</time>
-                                    </div>
-                                    <div class="comment-count">
-                                        <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
-                                        <span>189</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="blog-card">
-                            <figure class="card-banner">
-                                <a href="#">
-                                    <img src="https://i.postimg.cc/XJ8yqSRw/blog-4.jpg" alt="What is required when renting a car?" class="w-100" loading="lazy">
-                                </a>
-                                <a href="#" class="btn card-badge">Company</a>
-                            </figure>
-
-                            <div class="card-content">
-                                <h3 class="h3 card-title"><a href="#">What is required when renting a car?</a></h3>
-                                <div class="card-meta">
-                                    <div class="publish-date">
-                                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                                        <time datetime="2025-06-12">June 12, 2025</time>
-                                    </div>
-                                    <div class="comment-count">
-                                        <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
-                                        <span>222</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="blog-card">
-                            <figure class="card-banner">
-                                <a href="#">
-                                    <img src="https://i.postimg.cc/Zn5vysmX/blog-5.jpg" alt="New rules for handling our cars" class="w-100" loading="lazy">
-                                </a>
-                                <a href="#" class="btn card-badge">Company</a>
-                            </figure>
-
-                            <div class="card-content">
-                                <h3 class="h3 card-title"><a href="#">New rules for handling our cars</a></h3>
-                                <div class="card-meta">
-                                    <div class="publish-date">
-                                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                                        <time datetime="2025-06-01">June 01, 2025</time>
-                                    </div>
-                                    <div class="comment-count">
-                                        <ion-icon name="chatbubble-ellipses-outline" aria-hidden="true"></ion-icon>
-                                        <span>225</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
+        <footer>
             <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="/" class="logo" aria-label="Ridex Home">
-                        <img src="https://i.postimg.cc/XqGZ2KDt/logo-1.png" alt="Ridex logo">
-                    </a>
-                    <p class="footer-text">Search for cheap rental cars in New York. With more than 19,000 vehicles, Ridex offers an attractive selection of cars for you.</p>
+                <div class="container">
+                    <div class="footer-brand">
+                        <a href="#" class="logo"><img src="https://i.postimg.cc/x87tV35B/logo.png" alt="SNDK Technologies Logo"></a>
+                        <p class="footer-text">Connect with us:</p>
+                        <ul class="social-list">
+                            <li><a href="https://github.com/codewithsadee" class="social-link" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a></li>
+                            <li><a href="https://instagram.com/codewithsadee" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                            <li><a href="https://youtube.com/c/codewithsadee" class="social-link" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a></li>
+                            <li><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-link-box">
+                        <ul class="footer-link-list">
+                            <li><h3 class="h4 link-title">Company</h3></li>
+                            <li><a href="#" class="footer-link">About Us</a></li>
+                            <li><a href="#" class="footer-link">Features</a></li>
+                            <li><a href="#" class="footer-link">Pricing</a></li>
+                        </ul>
+                        <ul class="footer-link-list">
+                            <li><h3 class="h4 link-title">Products & Services</h3></li>
+                            <li><a href="#" class="footer-link">Blog</a></li>
+                            <li><a href="#" class="footer-link">Help Center</a></li>
+                            <li><a href="#" class="footer-link">Contact</a></li>
+                        </ul>
+                        <ul class="footer-link-list">
+                            <li><h3 class="h4 link-title">Resources</h3></li>
+                            <li><a href="#" class="footer-link">FAQ's</a></li>
+                            <li><a href="#" class="footer-link">Client Testimonials</a></li>
+                            <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+                        </ul>
+                        <ul class="footer-link-list">
+                            <li><h3 class="h4 link-title">Relevant Information</h3></li>
+                            <li><a href="#" class="footer-link">Our Approach</a></li>
+                            <li><a href="#" class="footer-link">Our Solutions</a></li>
+                            <li><a href="#" class="footer-link">Client Success Stories</a></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <ul class="footer-list">
-                    <li><p class="footer-list-title">Company</p></li>
-                    <li><a href="#about-us" class="footer-link">About Us</a></li>
-                    <li><a href="#" class="footer-link">Pricing Plans</a></li>
-                    <li><a href="#blog" class="footer-link">Our Blog</a></li>
-                    <li><a href="#" class="footer-link">Contacts</a></li>
-                </ul>
-
-                <ul class="footer-list">
-                    <li><p class="footer-list-title">Support</p></li>
-                    <li><a href="#" class="footer-link">Help Center</a></li>
-                    <li><a href="#" class="footer-link">Ask a question</a></li>
-                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
-                    <li><a href="#" class="footer-link">Terms & Conditions</a></li>
-                </ul>
-
-                <ul class="footer-list">
-                    <li><p class="footer-list-title">Neighborhoods in New York</p></li>
-                    <li><a href="#" class="footer-link">Manhattan</a></li>
-                    <li><a href="#" class="footer-link">Central New York City</a></li>
-                    <li><a href="#" class="footer-link">Upper East Side</a></li>
-                    <li><a href="#" class="footer-link">Queens</a></li>
-                    <li><a href="#" class="footer-link">Theater District</a></li>
-                    <li><a href="#" class="footer-link">Midtown</a></li>
-                    <li><a href="#" class="footer-link">SoHo</a></li>
-                    <li><a href="#" class="footer-link">Chelsea</a></li>
-                </ul>
             </div>
 
             <div class="footer-bottom">
-                <ul class="social-list">
-                    <li><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook" aria-hidden="true"></ion-icon></a></li>
-                    <li><a href="#" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram" aria-hidden="true"></ion-icon></a></li>
-                    <li><a href="#" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon></a></li>
-                    </ul>
-                <p class="copyright">Copyright 2025 <a href="#">Ridex</a>. All Rights Reserved.</p>
+                <p class="copyright">&copy; 2024 SNDK Technologies. All rights reserved.</p>
             </div>
-        </div>
-    </footer>
+        </footer>
+
+        <!-- Go-Top Button (ensure it's active for visibility) -->
+        <a href="#top" class="go-top active" data-go-top><ion-icon name="chevron-up-outline"></ion-icon></a>
+
+        <!-- Vendor JS (Consolidated and Cleaned) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="vendor/modernizr/modernizr.min.js"></script>
+        <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="vendor/isotope/isotope.pkgd.min.js"></script>
+        <script src="vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
+        <script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+        <script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="master/style-switcher/style.switcher.localstorage.js"></script>
+
+        <!-- Ion-icons (ensure these are loaded) -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!-- Theme Base, Components and Settings -->
+        <script src="js/theme.js"></script>
+
+        <!-- Theme Custom -->
+        <script src="js/custom.js"></script>
+
+        <!-- Theme Initialization Files -->
+        <script src="js/theme.init.js"></script>
+
+        <!-- Custom JavaScript for Navbar Toggle and Go-Top Button -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const navbar = document.querySelector('.navbar');
+                const navToggleBtn = document.querySelector('[data-navbar-toggle-btn]');
+                const goTopBtn = document.querySelector('[data-go-top]');
+
+                // Toggle Navbar (if a mobile menu button exists and is handled by this JS)
+                if (navToggleBtn && navbar) {
+                    navToggleBtn.addEventListener('click', () => {
+                        navbar.classList.toggle('active');
+                        document.body.classList.toggle('nav-active');
+                    });
+                }
+
+                // Show/Hide Go-Top Button on Scroll
+                if (goTopBtn) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY >= 200) {
+                            goTopBtn.classList.add('active');
+                        } else {
+                            goTopBtn.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        </script>
+    </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <title>Leading Web Design & Development Company in Pune | SNDK Technologies</title>
+    <meta name="keywords" content="website design and development company in pune india, professional website design, Best digital marketing company in pune, digital marketing, digital marketing agency in pune, website design company in pune, professional digital marketing company in pune, ecommerce marketing company in pune india, Internet Marketing company in pune" />
+    <meta name="description" content="SNDK Technologies is a premier web design and development company in Pune, India, offering bespoke website solutions with unique designs and robust development for diverse applications. Our professional web developers leverage extensive skills and experience to deliver a wide range of design options tailored to client requirements.">
+    <meta name="author" content="SNDK Technologies">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS (Consolidated and Cleaned) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme-elements.css">
+    <link rel="stylesheet" href="css/theme-blog.css">
+    <link rel="stylesheet" href="css/theme-shop.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
+    <link rel="stylesheet" href="vendor/circle-flip-slideshow/css/component.css">
+    <link rel="stylesheet" type="text/css" href="css/sndk-web-development-company-in-pune-india.css">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="css/skins/default.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Google Analytics and Tag Manager Scripts -->
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-781447119"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-781447119');
+    </script>
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WVEEELV2YD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WVEEELV2YD');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5VTF6GM');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google reCAPTCHA CDN -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit"></script>
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/fd4f9227e5.js" crossorigin="anonymous"></script>
+
+    <!-- Inline Styles (Consolidated from various places) -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif !important;
+        }
+        .bg-overlay-black-80:before {
+            background: rgba(2, 45, 98, 0.8);
+            content: "";
+            left: 0;
+            height: 668px;
+            position: absolute;
+            width: 100%;
+            z-index: 0;
+        }
+        #contact-form-main input,
+        #contact-form-main textarea {
+            border-radius: 8px;
+            width: 100%;
+            height: 40px;
+            background-color: inherit;
+            border: 1px solid grey;
+            margin-top: 15px;
+            padding-left: 4px;
+            color: #000;
+        }
+        #contact-form-main textarea::placeholder {
+            color: grey;
+            opacity: 1;
+            font-size: 14px;
+        }
+        #contact-form-main input::placeholder {
+            color: grey;
+            opacity: 1;
+            font-size: 14px;
+        }
+        #contact-form-main {
+            text-align: center;
+            margin-top: 95px;
+            margin-bottom: 30px;
+        }
+        #contact-form-main button {
+            background: #ffff;
+            color: #08c;
+            display: inline-block;
+            border: none;
+            padding: 10px 20px;
+            text-transform: capitalize;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 25px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .outerdiv {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .innerdiv {
+            transform: scale(0.9);
+            display: grid;
+            grid-gap: 1.5rem;
+            grid-template-rows: repeat(2,22rem);
+            grid-template-columns: repeat(4,16rem);
+        }
+        .eachdiv {
+            padding: 1rem 2rem;
+            border-radius: 0.8rem;
+            box-shadow: 5px 5px 20px #6d6b6b6b;
+            color: white;
+        }
+        .div1 {
+            background: #2e96d1;
+            grid-column: 1/3;
+            grid-row: 1/2;
+            background-image: url(../double_quote.png); /* Relative path, ensure this image exists */
+            background-repeat: no-repeat;
+            background-position-x: 25rem;
+        }
+        .div2 {
+            background:#49556B;
+            grid-column: 3/4;
+            grid-row: 1/2;
+        }
+        .div3 {
+            background: white;
+            grid-column: 4/5;
+            grid-row: 1/3;
+            color: black;
+        }
+        .div4 {
+            background: white;
+            grid-column: 1/2;
+            grid-row: 2/3;
+            color: black;
+        }
+        .div5 {
+            background: #18202D;
+            grid-column: 2/4;
+            grid-row: 2/3;
+        }
+        .userdetails {
+            display: flex;
+        }
+        .imgbox {
+            margin-right: 1rem;
+        }
+        .imgbox img {
+            border-radius: 50%;
+            width: 2rem;
+            border: 2px solid #cec5c5;
+        }
+        .detbox {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .detbox p {
+            margin: 0;
+        }
+        .detbox .name {
+            color: hsl(0, 0%, 81%);
+            font-size: 0.9rem;
+            margin-bottom: 0.1rem;
+            font-weight: 600;
+        }
+        .detbox .name.dark {
+            color: #49505A;
+        }
+        .detbox .designation {
+            color: hsl(0, 0%, 81%);
+            opacity: 50%;
+            font-size: 0.8rem;
+        }
+        .detbox .designation.dark {
+            color: #49505A;
+        }
+        .review h4 {
+            font-size: 1.4rem;
+            color: #F3DEFF;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+        .review.dark h4 {
+            color:#4B5258;
+        }
+        .review p {
+            font-size: 0.95rem;
+            color: #F3DEFF;
+            font-weight: 500;
+            opacity: 50%;
+            line-height: 1.5;
+        }
+        .review.dark p {
+            color: #0e0e0e;
+        }
+        .owl-carousel.dots-title.dots-title-pos-2 .owl-dots {
+            left: 510px;
+        }
+        .owl-carousel.dots-title .owl-dots {
+            position: absolute;
+            margin-top: 0 !important;
+            top:675px !important;
+            left: 155px;
+        }
+        @media screen and (max-width: 768px) {
+            .carousel-item {
+                width: 180% !important;
+                margin-right: -100%;
+            }
+        }
+        .mob2 { display: none !important; }
+        @media only screen and (max-width: 600px) {
+            .mob2 { display: block !important; }
+            .mob { display: none; }
+        }
+        .feature-item-five {
+            height:176px;
+            box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: 7px;
+            margin-bottom: 30px;
+            background-color: white;
+        }
+        .feature-item-five h5 {
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            margin-bottom: 0;
+        }
+        .feature-item-five:hover {
+            background-size: cover;
+            -webkit-transform: translateY(-15px);
+            -ms-transform: translateY(-15px);
+            transform: translateY(-15px);
+            background: linear-gradient(310deg,#0cc 0%,#09c 100%);
+        }
+        .feature-item-five:hover h5, .feature-item-five:hover h5 a {
+            color: white;
+        }
+        .services-section {
+            background: aliceblue;
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+        .section-title h2 {
+            text-align: center;
+            padding-bottom: 40px;
+            padding-top: 0px;
+        }
+        .main-category {
+            background: lightgrey;
+        }
+        .main-category h2 {
+            text-align: center;
+            padding-bottom: 30px;
+            padding-top: 50px;
+        }
+        .custom-text-box-image {
+            width: 100%;
+            height: auto;
+            max-width: 500px; /* Adjust as needed */
+            margin: 0 auto;
+            display: block;
+        }
+        .package-box {
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .package-box:hover {
+            transform: translateY(-10px);
+        }
+        .package-box.alt {
+            background: linear-gradient(310deg,#0cc 0%,#09c 100%);
+            color: white;
+        }
+        .package-box.alt h4, .package-box.alt p {
+            color: white !important;
+        }
+        .package-box .xl-text {
+            font-size: 2.5em; /* Larger font for price */
+            font-weight: 700;
+        }
+        .package-box .hi-feature {
+            font-weight: 600;
+            color: #555;
+        }
+        .package-box.alt .hi-feature {
+            color: #e0e0e0;
+        }
+        .package-box .btn-modern {
+            background: #08c;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 15px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .package-box .btn-modern:hover {
+            background: #006699;
+        }
+        /* Modal specific styles */
+        .modal-header {
+            background: linear-gradient(310deg,#0cc 0%,#09c 100%);
+            color: white;
+            border-radius: 25px 25px 0 0;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h4 {
+            margin: 0;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .modal-header .close {
+            color: white;
+            opacity: 1;
+            font-size: 2em;
+            text-shadow: none;
+        }
+        .modal-body {
+            background: #ffffffd9;
+            padding: 10px 25px;
+        }
+        /* Google Form Specific Styles */
+        .google-form-container {
+            width: 100%;
+            max-width: 600px; /* Adjust max-width as needed */
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden; /* Ensures iframe corners are rounded if parent has border-radius */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .google-form-container iframe {
+            width: 100%;
+            height: 800px; /* Adjust height as needed for your form */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VTF6GM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="body">
+        <header id="header" class="header-transparent header-effect-shrink header-no-border-bottom" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 70, 'stickyChangeLogo': false, 'stickyHeaderContainerHeight': 80}">
+            <div class="header-body" style="position: fixed; background: #345781!important; top: 0px;">
+                <div class="header-container container">
+                    <header class="header col-lg-12 col-md-12">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9">
+                                <div class="header-row">
+                                    <div class="header-column">
+                                        <div class="header-row">
+                                            <div class="header-logo">
+                                                <a href="#">
+                                                    <img alt="SNDK Technologies Logo" data-sticky-width="85" data-sticky-height="40" data-sticky-top="25" src="img/SNDK-Original-logo-svg-reverseclr (1).svg">
+                                                </a>
+                                                <a href="tel:7770005075" class="getin1"><i class="fa fa-phone getin-call1" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                                <div class="header header-transparent sticky-top" style="top: 26px;">
+                                    <div class="header-row">
+                                        <nav class="header-nav-top">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                                                    <a href="tel:+91 777 000 5075" class="wow fadeInLeftShorter animated"
+                                                       id="sliders-1" data-wow-delay="1s" data-appear-animation-delay="500"
+                                                       style="visibility:visible;animation-delay:1s;animation-name:fadeInLeft;background: linear-gradient(310deg,#0cc 0%,#09c 100%);    color: #fff;    display: inline-block;    border: none;    padding: 10px 20px;    text-transform: capitalize;    border-radius: 20px;    font-size: 14px;    font-weight: 600;    cursor: pointer;">
+                                                        <i class="fas fa-phone" style="transform: rotate(90deg);"></i> +91 777 000 5075
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </header>
+
+        <main role="main">
+            <section id="carousel" style="padding-top:54px;">
+                <div class="banner-04 align-items-center d-flex space-ptb bg-holder h-900 h-sm-900 bg-overlay-black-80"
+                     data-jarallax="{&quot;speed&quot;: 0.4}"
+                     style="background-image: url('https://uploads.onecompiler.io/43qbxf9xj/43qbxefpn/Screenshot%202025-07-11%20121040.png'); background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; position: relative; top: 0px; left: 0px; width: 100%; height: 600px; overflow: hidden; pointer-events: none; margin-top: 0px; transform: translate3d(0px, 0px, 0px);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8" style="padding-top:164px;background: #345781!important;">
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <h3> Essential Informative Website <br> from <i class="fas fa-rupee-sign" style="color:orange">12,999<sup>*</sup></i> </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3> Dynamic Business <br> Website from <i class="fas fa-rupee-sign" style="color:orange"> 39,999<sup>*</sup></i></h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3> Professional E-Commerce <br> Platform from <i class="fas fa-rupee-sign" style="color:orange">59,999<sup>*</sup></i> </h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3> Marketplace Listing <br> Solutions from <i class="fas fa-rupee-sign" style="color:orange">89,999<sup>*</sup></i> <span>(Starting From)</span></h3>
+                                        </div>
+                                        <div class="item">
+                                            <h3> Edu-Tech <br> Portal Development from <i class="fas fa-rupee-sign" style="color:orange"> 1,20,000<sup>*</sup> </i> <span>(Starting From)</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="free-domain">
+                                    <h5 style="color:orange;font-weight:bold;"> India's leading website development company.</h5>
+                                    <div class="two-line shadow weight-100" style="max-width:440px;padding: 20px 16px; background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);color:#fff;border-radius: 25px;-webkit-transition: all 0.3s ease-out;transition:all 0.3s ease-out;margin-top:50px;margin-bottom: 50px;">
+                                        <a href="tel:+91 777 000 5075">
+                                            <div class="d-flex flex-nowrap align-content-center">
+                                                <i class=" align-self-center bold"></i>
+                                                <p class="mb-0 ml-5 align-self-center f-18 " style="color:#fff;font-size:16px;font-weight:bold;">Project Discussion: +91 777 000 5075</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" id="contact-form-main" style="text-align:center;border-radius: 30px;background: #345781!important;">
+                                <div style="margin: 0;    padding: 17px 30px 15px;    background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);    border-radius: 25px 25px 0 0;">
+                                    <h5 style="color:#fff;text-align:center;padding-top:10px;text-transform:capitalize;font-weight:700;letter-spacing:1px;"> Connect With Us</h5>
+                                </div>
+                                <div style="background: #ffffffd9;    padding: 10px 25px;">
+                                    <form method="post" action="landing-page-main-form.php">
+                                        <input type="text" name="name" placeholder="Your Name" required="">
+                                        <input type="text" name="phone"  placeholder="Mobile Number" required="">
+                                        <input type="text" name="email1" placeholder="Email Address">
+                                        <textarea placeholder="Your Message" col="5" type="text" name="message"></textarea>
+                                        <div style="margin-bottom: 20px;    padding: 0px 30px 22px;    background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);    border-radius: 0 0 25px 25px;">
+                                            <center><button type="submit"> Submit Inquiry </button></center>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services-section section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2 style="text-align:center;padding-bottom:40px;padding-top: 0px;" class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Our Process</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-12"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12" style="background-image:url('img/DESIGN.png');height: 175px;background-repeat: no-repeat;background-position: center;"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12" style="background-image:url('img/DEVELOP.png');height: 175px;background-repeat: no-repeat;background-position: center;"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12" style="background-image:url('img/deliver.png');height: 175px;background-repeat: no-repeat;background-position: center;"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12" style="background-image:url('img/SUPPORT.png');height: 175px;background-repeat: no-repeat;background-position: center;"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-12"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-fluid main-category" id="website">
+                <h2 style="text-align:center;padding-bottom:30px;padding-top:50px;" class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Key Web Design Features</h2>
+                <div class="row row-cols-xl-6 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+                    <div class="row">
+                        <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+                            <img src="img/banner-image.png" class="custom-text-box-image img-fluid" alt="Web Design Features Banner">
+                        </div>
+                        <div class="col-sm-0 col-md-2">
+                            <div class="col wow fadeInUp delay-0-2s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/Responsive design.png" alt="Responsive design icon" style="width:60px">
+                                    <h5><a href="#">Responsive Design</a></h5>
+                                </div>
+                            </div>
+                            <div class="col wow fadeInUp delay-0-3s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/Powerful Customization.png" alt="Powerful Customization icon" style="width:60px">
+                                    <h5><a href="#">Robust Customization</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-0 col-md-2">
+                            <div class="col wow fadeInUp delay-0-4s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/Cool & modern animations.png" alt="Modern animations icon" style="width:60px">
+                                    <h5><a href="#">Modern Animations</a></h5>
+                                </div>
+                            </div>
+                            <div class="col wow fadeInUp delay-0-5s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/SEO Friendly Coding.png" alt="SEO Friendly Coding icon" style="width:60px">
+                                    <h5><a href="#">SEO-Optimized Code</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-0 col-md-2">
+                            <div class="col wow fadeInUp delay-0-6s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/Best Technical supports.png" alt="Technical support icon" style="width:60px">
+                                    <h5><a href="#">Dedicated Technical Support</a></h5>
+                                </div>
+                            </div>
+                            <div class="col wow fadeInUp delay-0-7s animated">
+                                <div class="feature-item-five">
+                                    <img src="img/layout-svgrepo-com 1.png" alt="Varied Layouts & parallax icon" style="width:60px">
+                                    <h5><a href="#">Diverse Layouts & Parallax</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-fluid py-5" id="professional-website">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-lg-12 col-md-12">
+                            <h2 style="text-align:center;padding-bottom:70px;" class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Establish Your Online Presence with Our Tailored Pricing Plans</h2>
+                            <div class="row">
+                                <!-- New Basic Landing Page for ₹1000 -->
+                                <div class="col-sm-12 col-md-6 col-lg-3 hvr-grow">
+                                    <div class="package-box text-center shadow">
+                                        <h4 class="clr-font"><span>Introductory</span> Landing Page </h4>
+                                        <div class="p-inner-box" style="height:630px;">
+                                            <p>
+                                                <i class="fas fa-rupee-sign"></i>
+                                                <span class="xl-text"> 1,000<sup>*</sup> </span>
+                                                <span><del><i class="fas fa-rupee-sign"></i> 2,500</del></span>
+                                            </p>
+                                            <p class="hi-feature"><span>Single Page Design</span> | <span>Essential Contact Information </span></p>
+                                            <p> Static Content Integration </p>
+                                            <p> Basic Text & Imagery </p>
+                                            <p> Mobile Responsiveness </p>
+                                            <p> Limited Technical Assistance </p>
+                                            <p> *Domain & Hosting Excluded </p>
+                                            <p style="margin-top: 10px; font-size: 12px; color: #888;">(This foundational package provides a simple, static one-page design. Domain and hosting services are separate.)</p>
+                                            <div style="margin-top:100px;">
+                                                <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal" style="border-radius: 15px;">
+                                                    Request a Demo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Existing Starter Static Website (now Standard) -->
+                                <div class="col-sm-12 col-md-6 col-lg-3 hvr-grow">
+                                    <div class="package-box text-center shadow">
+                                        <h4 class="clr-font"><span> Standard </span> Business Website </h4>
+                                        <div class="p-inner-box" style="height:630px;">
+                                            <p>
+                                                <i class="fas fa-rupee-sign"></i>
+                                                <span class="xl-text"> 12,999<sup>*</sup> </span>
+                                                <span><del><i class="fas fa-rupee-sign"></i> 18,000</del></span>
+                                            </p>
+                                            <p class="hi-feature"><span>Complimentary Domain & Hosting </span> | <span>Mobile-Optimized Design </span></p>
+                                            <p> Up to 5 Pages </p>
+                                            <p> Professional Content Creation </p>
+                                            <p> Custom Website Graphics</p>
+                                            <p>Live Chat Integration</p>
+                                            <p> Foundational SEO Services </p>
+                                            <p> Business Email Setup</p>
+                                            <p> Fully Responsive Design</p>
+                                            <p>24/7 Support</p>
+                                            <div style="margin-top:159px;">
+                                                <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal" style="border-radius: 15px;">
+                                                    Request a Demo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Existing Professional Static Website (now Advanced) -->
+                                <div class="col-sm-12 col-md-6 col-lg-3 hvr-grow">
+                                    <div class="package-box alt text-center shadow" style="background: linear-gradient(310deg,#0cc 0%,#09c 100%);">
+                                        <h4 class="clr-font"  style="color:#fff;"><span>Advanced</span> Corporate Website </h4>
+                                        <div class="p-inner-box" style="height:630px;">
+                                            <p>
+                                                <i class="fas fa-rupee-sign"></i>
+                                                <span class="xl-text">29,999<sup>*</sup></span>
+                                                <span><del><i class="fas fa-rupee-sign"></i> 35,000</del></span>
+                                            </p>
+                                            <p class="hi-feature"><span>Complimentary Domain & Hosting</span> | <span>Mobile-Optimized Design</span></p>
+                                            <p>10 - 12 Pages </p>
+                                            <p> Comprehensive Content Development </p>
+                                            <p> Bespoke Website Graphics</p>
+                                            <p>Live Chat Integration</p>
+                                            <p> Enhanced SEO Services </p>
+                                            <p> Professional Business Email</p>
+                                            <p> Fully Responsive Design</p>
+                                            <p>24/7 Priority Support</p>
+                                            <p> SSL Security Certificate </p>
+                                            <p> Social Media Integration </p>
+                                            <p> </p>
+                                            <div style="margin-top:85px;">
+                                                <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal" style="border-radius: 15px;">
+                                                    Request a Demo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Existing Professional E-Commerce (now Premium) -->
+                                <div class="col-sm-12 col-md-6 offset-md-3 offset-lg-0 col-lg-3 hvr-grow">
+                                    <div class="package-box text-center shadow">
+                                        <h4 class="clr-font"><span>Premium</span> E-Commerce Solution </h4>
+                                        <div class="p-inner-box" style="height:630px;">
+                                            <p>
+                                                <i class="fas fa-rupee-sign"></i>
+                                                <span class="xl-text">56,999<sup>*</sup></span>
+                                                <span><del><i class="fas fa-rupee-sign"></i> 75,000</del></span>
+                                            </p>
+                                            <p class="hi-feature"><span>Complimentary Domain & Hosting</span> | <span>Mobile-Optimized Design</span></p>
+                                            <p>Integrated Shopping Cart</p>
+                                            <p>Secure Payment Gateway</p>
+                                            <p>User Login & Comprehensive Reports</p>
+                                            <p>Efficient Order Management </p>
+                                            <p> Customer Wishlist Functionality </p>
+                                            <p> Unlimited Product Listings </p>
+                                            <p>Live Chat Integration</p>
+                                            <p> Advanced SEO Optimization </p>
+                                            <p> Professional Business Email</p>
+                                            <p> Fully Responsive Design</p>
+                                            <p>24/7 Priority Support</p>
+                                            <p> SSL Security Certificate </p>
+                                            <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal" style="border-radius: 15px;">
+                                                Request a Demo
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal HTML -->
+        <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Enquiry Form</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="contact-form-main" style="margin-top: -6px;text-align:center;border-radius: 30px;margin-bottom: -27px;">
+                            <div style="margin: 0;    padding: 17px 30px 15px;    background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);    border-radius: 25px 25px 0 0;">
+                                <h5 style="color:#fff;text-align:center;padding-top:10px;text-transform:capitalize;font-weight:700;letter-spacing:1px;"> Feel Free To Contact Us</h5>
+                            </div>
+                            <div style="background: #ffffffd9;    padding: 10px 25px;">
+                                <form method="post" action="landing-page-main-form.php" >
+                                    <input type="text" name="name" placeholder="Your Name" required="">
+                                    <input type="text" name="phone"  placeholder="Mobile Number" required="">
+                                    <input type="text" name="email1" placeholder="Email Address">
+                                    <textarea placeholder="Your Message" col="5" type="text" name="message"></textarea>
+                                </div>
+                                <div style="margin-bottom: 20px;    padding: 0px 30px 22px;    background-color: transparent;    background-image: linear-gradient(310deg,#0cc 0%,#09c 100%);    border-radius: 0 0 25px 25px;">
+                                    <center><button type="submit"> Submit Inquiry </button></center>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section - Re-integrating Google Form -->
+        <section class="contact" id="contact" style="padding-top: 120px; padding-bottom: 120px;">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="h2 contact-title" style="text-align: center;">Partner with Us to Scale Your Brand</h2>
+                    <p class="contact-text-intro" style="text-align: center; color: #555; font-size: 18px; margin-bottom: 40px;">
+                        Have a project in mind or require a consultation? Please complete the form below, or contact our team directly.
+                    </p>
+                    <figure class="contact-banner" style="max-width: 400px; margin: 0 auto 50px;"><img src="https://i.postimg.cc/4dmYSY4F/contact.png" alt="contact banner" style="width: 100%;"></figure>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <div class="contact-numbers" style="text-align: center; margin-bottom: 40px;">
+                        <p style="color: #0c0c0c; font-size: 20px; font-weight: 600; margin-bottom: 10px;">Reach us directly:</p>
+                        <a href="tel:+917770984861" style="color: #FF6B6B; font-size: 26px; font-weight: 700; display: block; margin-bottom: 5px;">+91 7770984861</a>
+                        <a href="tel:+919422410867" style="color: #FF6B6B; font-size: 26px; font-weight: 700; display: block; margin-bottom: 5px;">+91 9422410867</a>
+                    </div>
+
+                    <h3 class="h3 contact-title" style="text-align: center; margin-top: 30px;">Submit Your Inquiry</h3>
+                    <div class="google-form-container">
+                        <!-- IMPORTANT: Replace the 'src' attribute below with the actual embed URL of your Google Form.
+                            To get this:
+                            1. Create your form in Google Forms.
+                            2. Click "Send" (top right).
+                            3. Go to the "Embed HTML" tab (the <> icon).
+                            4. Copy the 'src' URL from the iframe code provided.
+                            5. Adjust the 'height' attribute in the iframe style if your form is longer or shorter.
+                        -->
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_EXAMPLE_FORM_ID_HERE/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-top">
+                <div class="container">
+                    <div class="footer-brand">
+                        <a href="#" class="logo"><img src="https://i.postimg.cc/x87tV35B/logo.png" alt="SNDK Technologies Logo"></a>
+                        <p class="footer-text">Connect with us:</p>
+                        <ul class="social-list">
+                            <li><a href="https://github.com/codewithsadee" class="social-link" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a></li>
+                            <li><a href="https://instagram.com/codewithsadee" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                            <li><a href="https://youtube.com/c/codewithsadee" class="social-link" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a></li>
+                            <li><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-link-box">
+                        <ul class="footer-link-list">
+                            <li><h3 class="h4 link-title">Company</h3></li>
+                            <li><a href="#" class="footer-link">About Us</a></li>
+                            <li><a href="#" class="footer-link">Features</a></li>
+                            <li><a href="#" class="footer-link">Pricing</a></li>
+                        </ul>
+                        <ul class="footer-link-list">
+                            <li><h3 class="h4 link-title">Products & Services</h3></li>
+                            <li><a href="#" class="footer-link">Blog</a></li>
+                            <li><a href="#" class="footer-link">Help Center</a></li>
+                            <li><a href="#" class="footer-link">Contact</a></li>
+                        </ul>
+                        <ul class="footer-link-list">
+                            <li><h3 class="h4 link-title">Resources</h3></li>
+                            <li><a href="#" class="footer-link">FAQ's</a></li>
+                            <li><a href="#" class="footer-link">Client Testimonials</a></li>
+                            <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+                        </ul>
+                        <ul class="footer-link-list">
+                            <li><h3 class="h4 link-title">Relevant Information</h3></li>
+                            <li><a href="#" class="footer-link">Our Approach</a></li>
+                            <li><a href="#" class="footer-link">Our Solutions</a></li>
+                            <li><a href="#" class="footer-link">Client Success Stories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2024 SNDK Technologies. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Go-Top Button (ensure it's active for visibility) -->
+        <a href="#top" class="go-top active" data-go-top><ion-icon name="chevron-up-outline"></ion-icon></a>
+
+        <!-- Vendor JS (Consolidated and Cleaned) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="vendor/modernizr/modernizr.min.js"></script>
+        <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="vendor/isotope/isotope.pkgd.min.js"></script>
+        <script src="vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
+        <script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+        <script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="master/style-switcher/style.switcher.localstorage.js"></script>
+
+        <!-- Ion-icons (ensure these are loaded) -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!-- Theme Base, Components and Settings -->
+        <script src="js/theme.js"></script>
+
+        <!-- Theme Custom -->
+        <script src="js/custom.js"></script>
+
+        <!-- Theme Initialization Files -->
+        <script src="js/theme.init.js"></script>
+
+        <!-- Custom JavaScript for Navbar Toggle and Go-Top Button -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const navbar = document.querySelector('.navbar');
+                const navToggleBtn = document.querySelector('[data-navbar-toggle-btn]');
+                const goTopBtn = document.querySelector('[data-go-top]');
+
+                // Toggle Navbar (if a mobile menu button exists and is handled by this JS)
+                if (navToggleBtn && navbar) {
+                    navToggleBtn.addEventListener('click', () => {
+                        navbar.classList.toggle('active');
+                        document.body.classList.toggle('nav-active');
+                    });
+                }
+
+                // Show/Hide Go-Top Button on Scroll
+                if (goTopBtn) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY >= 200) {
+                            goTopBtn.classList.add('active');
+                        } else {
+                            goTopBtn.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
+
