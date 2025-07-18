@@ -2,812 +2,468 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-    <title>SNDK Technologies - Web Design & Development in Pune</title>
-    <meta name="keywords" content="website design and development company in pune india, professional website design, Best digital marketing company in pune, digital marketing, digital marketing agency in pune, website design company in pune, professional digital marketing company in pune, ecommerce marketing company in pune india, Internet Marketing company in pune" />
-    <meta name="description" content="SNDK Technologies is a premier web design and development company in Pune, India, offering bespoke website solutions with unique designs and robust development for diverse applications. Our professional web developers leverage extensive skills and experience to deliver a wide range of design options tailored to client requirements.">
-    <meta name="author" content="SNDK Technologies">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suhana Tiwari - Portfolio</title>
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for a clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons (e.g., LinkedIn, GitHub) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="vendor/animate/animate.min.css">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
-    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
-
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/theme-elements.css">
-    <link rel="stylesheet" href="css/theme-blog.css">
-    <link rel="stylesheet" href="css/theme-shop.css">
-
-    <link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
-    <link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
-    <link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
-    <link rel="stylesheet" href="vendor/circle-flip-slideshow/css/component.css">
-    <link rel="stylesheet" type="text/css" href="css/sndk-web-development-company-in-pune-india.css">
-
-    <link rel="stylesheet" href="css/skins/default.css">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-781447119"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-781447119');
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WVEEELV2YD"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-WVEEELV2YD');
-    </script>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5VTF6GM');</script>
-
-    <script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit"></script>
-    <script src="https://kit.fontawesome.com/fd4f9227e5.js" crossorigin="anonymous"></script>
+    <!-- Spline Viewer Script - This is crucial for embedding your 3D scene -->
+    <!-- It's placed here in the head to ensure it's loaded before the custom element is used -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.32/build/spline-viewer.js"></script>
 
     <style>
-        /* General Typography & Colors for Google-like feel */
+        /* Custom CSS for base styles and font family */
         body {
-            font-family: 'Roboto', sans-serif !important; /* Prioritize Roboto */
-            color: #3c4043; /* Darker gray for primary text */
-            background-color: #f8f9fa; /* Light gray background, typical for clean designs */
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #334155; /* Darker text color */
+            /* No background color here, as Spline will be the background */
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Roboto', sans-serif !important;
-            color: #202124; /* Even darker for headings */
-            font-weight: 500; /* Medium weight for headings */
+        /* Ensure spline-viewer takes full available space within its container */
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+            display: block; /* Important to remove extra space below inline elements */
+            /* No border-radius or overflow here, as it's full screen background */
         }
-        a {
-            color: #1a73e8; /* Google's blue for links */
-            text-decoration: none; /* Clean links */
+        /* Spline Background Container */
+        .spline-background-container {
+            position: fixed; /* Fixes the Spline to the viewport */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            z-index: -1; /* Send it to the background */
+            pointer-events: none; /* Allow clicks to pass through to elements below */
+            overflow: hidden; /* Hide any overflow from the spline */
         }
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Header & Navigation (Cleaner Look) */
-        #header .header-body {
-            position: fixed;
-            background: #ffffff !important; /* White background */
-            box-shadow: 0 2px 4px rgba(0,0,0,.1); /* Subtle shadow for depth */
-            top: 0px;
-        }
-        #header .header-logo img {
-            max-height: 40px; /* Example size */
-            width: auto;
-        }
-        .header-nav-top .nav-pills .nav-item a {
-            background: none !important; /* Remove gradient from phone button */
-            color: #1a73e8 !important; /* Google blue for the button text */
-            border: 1px solid #dadce0; /* Light border */
-            border-radius: 8px !important; /* More rounded corners */
-            padding: 8px 16px !important;
-            font-weight: 500 !important;
-            transition: all 0.3s ease;
-        }
-        .header-nav-top .nav-pills .nav-item a:hover {
-            background-color: #f0f0f0 !important;
-            box-shadow: 0 1px 2px rgba(0,0,0,.1);
-        }
-
-        /* Banner/Carousel Section (Cleaner Background) */
-        #carousel .banner-04 {
-            background-image: none !important; /* Remove background image */
-            background-color: #e8f0fe !important; /* A light blue tint, like Google's product pages */
-            height: auto !important; /* Let content dictate height */
-            min-height: 600px; /* Ensure it still has some height */
-            position: relative;
+        /* Overlay for better text readability on top of Spline */
+        .spline-overlay {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            overflow: hidden;
-            pointer-events: auto;
-            transform: none !important;
+            height: 100%;
+            background-color: rgba(248, 250, 252, 0.85); /* Light blue-gray with transparency */
+            /* Adjust opacity as needed to balance visibility of Spline and readability of text */
+            pointer-events: none; /* Allow clicks to pass through */
         }
-        .bg-overlay-black-80:before {
-            display: none; /* Hide the dark overlay */
+        /* Content sections need a higher z-index and their own background */
+        section, header, footer {
+            position: relative; /* Needed for z-index to work */
+            z-index: 10; /* Ensure content is above the Spline background */
+            background-color: transparent; /* Start with transparent, apply specific backgrounds to content divs */
         }
-        #carousel .container {
-            padding-top: 100px; /* Adjust padding for spacing below header */
-            padding-bottom: 50px;
-        }
-        #carousel .col-lg-8, #carousel .col-md-8 {
-            background: none !important; /* Remove background from this column */
-            padding-top: 0px !important; /* Reset padding */
-        }
-        #myCarousel .item h3 {
-            color: #202124; /* Dark text for headings */
-            font-size: 2.2em;
-            line-height: 1.3;
-            font-weight: 600;
-        }
-        #myCarousel .item i.fas.fa-rupee-sign {
-            color: #1a73e8 !important; /* Use Google blue for currency icon */
-        }
-        #free-domain h5 {
-            color: #1a73e8 !important; /* Use Google blue for the tagline */
-            font-weight: 600 !important;
-            font-size: 1.2em;
-        }
-        #free-domain .two-line {
-            background: #ffffff !important; /* White background for the contact box */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow */
-            color: #1a73e8 !important; /* Blue text */
-            border-radius: 8px !important; /* More rounded corners */
-            margin-top: 30px !important;
-            margin-bottom: 30px !important;
-            padding: 15px 20px !important;
-            display: inline-block; /* Make it fit content and allow centering */
-        }
-        #free-domain .two-line p {
-            color: #1a73e8 !important; /* Ensure text is blue */
-            font-size: 1.1em !important;
-        }
-
-        /* Contact Form (Cleaner Look) */
-        #contact-form-main {
-            text-align: center;
-            margin-top: 30px; /* Adjust margin */
-            margin-bottom: 30px;
-            border-radius: 12px !important; /* More rounded corners for the entire form container */
-            background: #ffffff !important; /* White background */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow */
-            padding: 0; /* Remove internal padding if any */
-            overflow: hidden; /* Ensure rounded corners clip content */
-        }
-        #contact-form-main div:first-child { /* The header of the form */
-            background: #1a73e8 !important; /* Google blue header */
-            border-radius: 12px 12px 0 0 !important;
-            padding: 15px 30px !important;
-        }
-        #contact-form-main h5 {
-            color: #fff !important;
-            font-weight: 600 !important;
-            letter-spacing: 0;
-        }
-        #contact-form-main div:last-child { /* The footer/button area of the form */
-            background: #ffffff !important; /* White background */
-            padding: 0px 30px 22px !important; /* Adjust padding */
-            border-radius: 0 0 12px 12px !important;
-        }
-        #contact-form-main input,
-        #contact-form-main textarea {
-            border-radius: 8px !important;
+        /* Specific height for the spline container within the project section, if still needed */
+        .spline-container {
+            height: 600px; /* Adjust this height as needed for your Spline scene */
             width: 100%;
-            height: 45px; /* Slightly taller for better touch targets */
-            background-color: #f8f9fa; /* Light gray input background */
-            border: 1px solid #dadce0; /* Light border */
-            margin-top: 15px;
-            padding-left: 12px; /* More padding */
-            color: #3c4043;
-            font-size: 16px !important; /* Larger font size */
+            min-height: 400px; /* Minimum height for smaller screens */
+            max-height: 80vh; /* Max height relative to viewport height */
+            border-radius: 0.75rem; /* Rounded corners for the viewer */
+            overflow: hidden; /* Hide any overflow */
         }
-        #contact-form-main textarea {
-            height: 100px; /* Adjust textarea height */
-            padding-top: 10px;
+        /* Smooth scroll behavior for navigation links */
+        html {
+            scroll-behavior: smooth;
         }
-        #contact-form-main input::placeholder,
-        #contact-form-main textarea::placeholder {
-            color: #70757a; /* Softer placeholder color */
-            opacity: 1;
+        /* Fade-out animation for loading overlay */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
         }
-        #contact-form-main button {
-            background: #1a73e8 !important; /* Google blue button */
-            color: #fff !important;
-            padding: 12px 25px !important;
-            border-radius: 8px !important;
-            font-weight: 600 !important;
-            font-size: 16px !important;
-            margin-top: 25px !important;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        #contact-form-main button:hover {
-            background: #1565c0 !important; /* Darker blue on hover */
-            box-shadow: 0 2px 4px rgba(0,0,0,.2);
-        }
-
-        /* Sections: Our Process & Key Web Design Features */
-        .services-section, .main-category {
-            background: #ffffff; /* White background for sections */
-            padding-top: 80px;
-            padding-bottom: 80px;
-        }
-        .section-title h2 {
-            color: #202124;
-            font-weight: 600;
-            margin-bottom: 50px; /* More spacing */
-        }
-
-        /* Feature Item Five (Key Web Design Features) */
-        .feature-item-five {
-            height: auto;
-            min-height: 176px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-            text-align: center;
-            padding: 25px 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            background-color: white;
-        }
-        .feature-item-five img {
-            margin-bottom: 15px;
-        }
-        .feature-item-five h5 a {
-            color: #202124;
-            font-weight: 500;
-        }
-        .feature-item-five:hover {
-            background: #e8f0fe !important;
-            transform: translateY(-8px);
-            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        }
-        .feature-item-five:hover h5, .feature-item-five:hover h5 a {
-            color: #1a73e8 !important;
-        }
-        .custom-text-box-image {
-            max-width: 400px;
-            border-radius: 8px;
-        }
-
-        /* Pricing Plans (Cleaner, Google-inspired Cards) */
-        #professional-website {
-            padding-top: 80px;
-            padding-bottom: 80px;
-            background-color: #f8f9fa;
-        }
-        #professional-website h2 {
-            margin-bottom: 60px;
-        }
-        .package-box {
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            border-radius: 12px;
-            margin-bottom: 30px;
-            background-color: white;
-            padding: 30px 20px;
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-            height: auto !important; /* Remove fixed height */
-            display: flex; /* Flexbox for inner content alignment */
-            flex-direction: column;
-            justify-content: space-between; /* Distribute space */
-        }
-        .package-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        }
-        .package-box h4 {
-            font-size: 1.6em;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #202124;
-        }
-        .package-box .xl-text {
-            font-size: 3em;
-            font-weight: 700;
-            color: #1a73e8;
-        }
-        .package-box span del {
-            color: #70757a;
-            font-size: 0.8em;
-            margin-left: 10px;
-        }
-        .package-box .hi-feature {
-            font-weight: 600;
-            color: #3c4043;
-            margin-bottom: 10px;
-        }
-        .package-box p {
-            color: #5f6368;
-            font-size: 0.95em;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-        .package-box .btn-modern {
-            background: #1a73e8 !important;
-            color: #fff !important;
-            padding: 12px 30px !important;
-            border-radius: 8px !important;
-            font-weight: 600 !important;
-            font-size: 1em !important;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            margin-top: auto; /* Push button to the bottom */
-        }
-        .package-box .btn-modern:hover {
-            background: #1565c0 !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,.2);
-        }
-
-        /* Featured Package (e.g., the "alt" class) */
-        .package-box.alt {
-            background: #1a73e8 !important;
-            color: white !important;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        }
-        .package-box.alt h4, .package-box.alt p {
-            color: white !important;
-        }
-        .package-box.alt .hi-feature {
-            color: #e0e0e0 !important;
-        }
-        .package-box.alt .xl-text {
-            color: white !important;
-        }
-        .package-box.alt .btn-modern {
-            background: #ffffff !important;
-            color: #1a73e8 !important;
-        }
-        .package-box.alt .btn-modern:hover {
-            background: #f0f0f0 !important;
-        }
-
-        /* Original inline styles (some might be overridden above, keep if necessary for other elements) */
-        .owl-carousel.dots-title.dots-title-pos-2 .owl-dots { left: 510px; }
-        .owl-carousel.dots-title .owl-dots { position: absolute; margin-top: 0 !important; top:675px !important; left: 155px; }
-        @media screen and (max-width: 768px) {
-            .carousel-item { width: 180% !important; margin-right: -100%; }
-        }
-        .mob2 { display: none !important; }
-        @media only screen and (max-width: 600px) {
-            .mob2 { display: block !important; }
-            .mob { display: none; }
-            /* Adjustments for mobile view of contact form */
-            #contact-form-main { margin-top: 20px; margin-bottom: 20px; }
-            #carousel .container { padding-top: 80px; padding-bottom: 30px; }
-            #carousel .col-lg-8, #carousel .col-md-8 { padding-top: 0px !important; }
-            #myCarousel .item h3 { font-size: 1.8em; }
-            #free-domain .two-line { margin-top: 20px !important; margin-bottom: 20px !important; }
-        }
-        .services-section { background: #ffffff; padding-top: 100px; padding-bottom: 50px; }
-        .section-title h2 { text-align: center; padding-bottom: 40px; padding-top: 0px; }
-        .main-category { background: #ffffff; }
-        .main-category h2 { text-align: center; padding-bottom: 30px; padding-top: 50px; }
-        .package-box .p-inner-box {
-            /* This height was fixed in original, remove or make dynamic */
-            height: auto; /* Let content dictate height */
-            display: flex;
-            flex-direction: column;
-        }
-        .package-box .p-inner-box div {
-            margin-top: auto; /* Push button to bottom */
-        }
-        /* Modal specific styles */
-        .modal-header { background: linear-gradient(310deg,#0cc 0%,#09c 100%); color: white; border-radius: 25px 25px 0 0; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
-        .modal-header h4 { margin: 0; color: white; font-weight: 700; letter-spacing: 1px; }
-        .modal-header .close { color: white; opacity: 1; font-size: 2em; text-shadow: none; }
-        .modal-body { background: #ffffffd9; padding: 10px 25px; }
-        /* Google Form Specific Styles */
-        .google-form-container { width: 100%; max-width: 600px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .google-form-container iframe { width: 100%; height: 800px; border: none; }
-        /* Process Section Images - Adjust path if needed */
-        .col-lg-2.col-md-2.col-sm-12[style*="background-image"] {
-            background-size: contain; /* Ensure images fit without cropping */
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 120px; /* Adjust height to prevent excess space */
-            margin-bottom: 20px;
+        .hidden-after-fade {
+            display: none;
         }
     </style>
 </head>
-<body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VTF6GM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <div class="body">
-        <header id="header" class="header-transparent header-effect-shrink header-no-border-bottom" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 70, 'stickyChangeLogo': false, 'stickyHeaderContainerHeight': 80}">
-            <div class="header-body">
-                <div class="header-container container">
-                    <header class="header col-lg-12 col-md-12">
-                        <div class="row">
-                            <div class="col-lg-9 col-md-9">
-                                <div class="header-row">
-                                    <div class="header-column">
-                                        <div class="header-row">
-                                            <div class="header-logo">
-                                                <a href="#">
-                                                    <img alt="SNDK Technologies Logo" data-sticky-width="85" data-sticky-height="40" data-sticky-top="25" src="img/SNDK-Original-logo-svg-reverseclr (1).svg">
-                                                </a>
-                                                <a href="tel:7770005075" class="getin1 mob"><i class="fa fa-phone getin-call1" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3">
-                                <div class="header header-transparent sticky-top">
-                                    <div class="header-row">
-                                        <nav class="header-nav-top">
-                                            <ul class="nav nav-pills">
-                                                <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                                    <a href="tel:+91 777 000 5075" class="wow fadeInLeftShorter animated"
-                                                       id="sliders-1" data-wow-delay="1s" data-appear-animation-delay="500">
-                                                        <i class="fas fa-phone" style="transform: rotate(90deg);"></i> +91 777 000 5075
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-                </div>
-            </div>
-        </header>
+<body class="antialiased">
 
-        <main role="main">
-            <section id="carousel">
-                <div class="banner-04 align-items-center d-flex space-ptb bg-holder h-900 h-sm-900 bg-overlay-black-80"
-                     data-jarallax="{&quot;speed&quot;: 0.4}"
-                     style="background-image: url('https://uploads.onecompiler.io/43qbxf9xj/43qbxefpn/Screenshot%202025-07-11%20121040.png');">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8">
-                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <h3> Essential Informative Website <br> from <i class="fas fa-rupee-sign">12,999<sup>*</sup></i> </h3>
-                                        </div>
-                                        <div class="item">
-                                            <h3> Dynamic Business <br> Website from <i class="fas fa-rupee-sign"> 39,999<sup>*</sup></i></h3>
-                                        </div>
-                                        <div class="item">
-                                            <h3> Professional E-Commerce <br> Platform from <i class="fas fa-rupee-sign">59,999<sup>*</sup></i> </h3>
-                                        </div>
-                                        <div class="item">
-                                            <h3> Marketplace Listing <br> Solutions from <i class="fas fa-rupee-sign">89,999<sup>*</sup></i> <span>(Starting From)</span></h3>
-                                        </div>
-                                        <div class="item">
-                                            <h3> Edu-Tech <br> Portal Development from <i class="fas fa-rupee-sign"> 1,20,000<sup>*</sup> </i> <span>(Starting From)</span></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="free-domain">
-                                    <h5> India's leading website development company.</h5>
-                                    <div class="two-line shadow weight-100">
-                                        <a href="tel:+91 777 000 5075">
-                                            <div class="d-flex flex-nowrap align-content-center">
-                                                <i class=" align-self-center bold"></i>
-                                                <p class="mb-0 ml-5 align-self-center f-18 ">Project Discussion: +91 777 000 5075</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" id="contact-form-main">
-                                <div>
-                                    <h5> Connect With Us</h5>
-                                </div>
-                                <div>
-                                    <form method="post" action="landing-page-main-form.php">
-                                        <input type="text" name="name" placeholder="Your Name" required="">
-                                        <input type="text" name="phone"  placeholder="Mobile Number" required="">
-                                        <input type="text" name="email1" placeholder="Email Address">
-                                        <textarea placeholder="Your Message" col="5" type="text" name="message"></textarea>
-                                        <div>
-                                            <center><button type="submit"> Submit Inquiry </button></center>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="services-section section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="section-title text-center">
-                                <h2 class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Our Process</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-2 col-md-2 col-sm-6 text-center" style="background-image:url('img/DESIGN.png');"></div>
-                        <div class="col-lg-2 col-md-2 col-sm-6 text-center" style="background-image:url('img/DEVELOP.png');"></div>
-                        <div class="col-lg-2 col-md-2 col-sm-6 text-center" style="background-image:url('img/deliver.png');"></div>
-                        <div class="col-lg-2 col-md-2 col-sm-6 text-center" style="background-image:url('img/SUPPORT.png');"></div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="container-fluid main-category" id="website">
-                <h2 class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Key Web Design Features</h2>
-                <div class="row justify-content-center">
-                    <div class="col-lg-5 col-12 mb-4 mb-lg-0">
-                        <img src="img/banner-image.png" class="custom-text-box-image img-fluid" alt="Web Design Features Banner">
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-5">
-                        <div class="row">
-                            <div class="col-6 wow fadeInUp delay-0-2s animated">
-                                <div class="feature-item-five">
-                                    <img src="img/Responsive design.png" alt="Responsive design icon" style="width:60px">
-                                    <h5><a href="#">Responsive Design</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-6 wow fadeInUp delay-0-3s animated">
-                                <div class="feature-item-five">
-                                    <img src="img/Powerful Customization.png" alt="Powerful Customization icon" style="width:60px">
-                                    <h5><a href="#">Robust Customization</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-6 wow fadeInUp delay-0-4s animated">
-                                <div class="feature-item-five">
-                                    <img src="img/Cool & modern animations.png" alt="Modern animations icon" style="width:60px">
-                                    <h5><a href="#">Modern Animations</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-6 wow fadeInUp delay-0-5s animated">
-                                <div class="feature-item-five">
-                                    <img src="img/SEO Friendly Coding.png" alt="SEO Friendly Coding icon" style="width:60px">
-                                    <h5><a href="#">SEO-Optimized Code</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-6 wow fadeInUp delay-0-6s animated">
-                                <div class="feature-item-five">
-                                    <img src="img/Best Technical supports.png" alt="Technical support icon" style="width:60px">
-                                    <h5><a href="#">Dedicated Technical Support</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-6 wow fadeInUp delay-0-7s animated">
-                                <div class="feature-item-five">
-                                    <img src="img/layout-svgrepo-com 1.png" alt="Varied Layouts & parallax icon" style="width:60px">
-                                    <h5><a href="#">Diverse Layouts & Parallax</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="container-fluid py-5" id="professional-website">
-                <div class="row">
-                    <div class="container">
-                        <div class="col-lg-12 col-md-12">
-                            <h2 class="word-rotator-title font-weight-bold text-8 mb-3 appear-animation text-center"> Establish Your Online Presence with Our Tailored Pricing Plans</h2>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-3 hvr-grow">
-                                    <div class="package-box text-center shadow">
-                                        <h4 class="clr-font"><span>Introductory</span> Landing Page </h4>
-                                        <div class="p-inner-box">
-                                            <p>
-                                                <i class="fas fa-rupee-sign"></i>
-                                                <span class="xl-text"> 1,000<sup>*</sup> </span>
-                                                <span><del><i class="fas fa-rupee-sign"></i> 2,500</del></span>
-                                            </p>
-                                            <p class="hi-feature"><span>Single Page Design</span> | <span>Essential Contact Information </span></p>
-                                            <p> Static Content Integration </p>
-                                            <p> Basic Text & Imagery </p>
-                                            <p> Mobile Responsiveness </p>
-                                            <p> Limited Technical Assistance </p>
-                                            <p> *Domain & Hosting Excluded </p>
-                                            <p style="margin-top: 10px; font-size: 12px; color: #888;">(This foundational package provides a simple, static one-page design. Domain and hosting services are separate.)</p>
-                                            <div>
-                                                <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal">
-                                                    Request a Demo
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-3 hvr-grow">
-                                    <div class="package-box text-center shadow">
-                                        <h4 class="clr-font"><span> Standard </span> Business Website </h4>
-                                        <div class="p-inner-box">
-                                            <p>
-                                                <i class="fas fa-rupee-sign"></i>
-                                                <span class="xl-text"> 12,999<sup>*</sup> </span>
-                                                <span><del><i class="fas fa-rupee-sign"></i> 18,000</del></span>
-                                            </p>
-                                            <p class="hi-feature"><span>Complimentary Domain & Hosting </span> | <span>Mobile-Optimized Design </span></p>
-                                            <p> Up to 5 Pages </p>
-                                            <p> Professional Content Creation </p>
-                                            <p> Custom Website Graphics</p>
-                                            <p>Live Chat Integration</p>
-                                            <p> Foundational SEO Services </p>
-                                            <p> Business Email Setup</p>
-                                            <p> Fully Responsive Design</p>
-                                            <p>24/7 Support</p>
-                                            <div>
-                                                <button class="btn btn-modern btn-primary" data-toggle="modal" data-target="#defaultModal">
-                                                    Request a Demo
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="outerdiv">
-                <div class="innerdiv">
-                    <div class="eachdiv div1">
-                        <div class="userdetails">
-                            <div class="imgbox">
-                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/53792b0c6340426973e236353346b0a7c11c1303/images/image-daniel.jpg" alt="">
-                            </div>
-                            <div class="detbox">
-                                <p class="name">Daniel Clifford</p>
-                                <p class="designation">Verified Graduate</p>
-                            </div>
-                        </div>
-                        <div class="review">
-                            <h4>I received a job offer mid-course, and the given support was outstanding.</h4>
-                            <p>“ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a transition and have heard some amazing things about the bootcamp. I’ve now joined their pre-course study which I’m very excited about. ”</p>
-                        </div>
-                    </div>
-                    <div class="eachdiv div2">
-                        <div class="userdetails">
-                            <div class="imgbox">
-                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/53792b0c6340426973e236353346b0a7c11c1303/images/image-jonathan.jpg" alt="">
-                            </div>
-                            <div class="detbox">
-                                <p class="name">Jonathan Walters</p>
-                                <p class="designation">Verified Graduate</p>
-                            </div>
-                        </div>
-                        <div class="review">
-                            <h4>The team was very supportive and I got a lot out of it.</h4>
-                            <p>“ I started with a very basic understanding of code and through the course, I got a much better understanding of the fundamentals. They are amazing at what they do and I highly recommend them. ”</p>
-                        </div>
-                    </div>
-                    <div class="eachdiv div3">
-                        <div class="userdetails">
-                            <div class="imgbox">
-                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/53792b0c6340426973e236353346b0a7c11c1303/images/image-kira.jpg" alt="">
-                            </div>
-                            <div class="detbox">
-                                <p class="name dark">Kira Whittle</p>
-                                <p class="designation dark">Verified Graduate</p>
-                            </div>
-                        </div>
-                        <div class="review dark">
-                            <h4>Such a life-changing experience. Highly recommended!</h4>
-                            <p>“ Before joining the bootcamp, I’ve never written a line of code. I was beyond excited to learn at least the basics. All of a sudden, I found myself doing things I never imagined possible. The amount of support I received was incredible. ”</p>
-                        </div>
-                    </div>
-                    <div class="eachdiv div4">
-                        <div class="userdetails">
-                            <div class="imgbox">
-                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/53792b0c6340426973e236353346b0a7c11c1303/images/image-jeanette.jpg" alt="">
-                            </div>
-                            <div class="detbox">
-                                <p class="name dark">Jeanette Harmon</p>
-                                <p class="designation dark">Verified Graduate</p>
-                            </div>
-                        </div>
-                        <div class="review dark">
-                            <h4>An amazing experience I'd recommend to everyone.</h4>
-                            <p>“ I've been a software engineer for over 10 years, but I'm always looking to learn new things. This bootcamp was a great way to do that. I learned a lot and had a great time doing it. ”</p>
-                        </div>
-                    </div>
-                    <div class="eachdiv div5">
-                        <div class="userdetails">
-                            <div class="imgbox">
-                                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/53792b0c6340426973e236353346b0a7c11c1303/images/image-patrick.jpg" alt="">
-                            </div>
-                            <div class="detbox">
-                                <p class="name">Patrick Abrams</p>
-                                <p class="designation">Verified Graduate</p>
-                            </div>
-                        </div>
-                        <div class="review">
-                            <h4>Awesome teaching support from TAs who did the bootcamp themselves.</h4>
-                            <p>“ The staff were all very supportive and helpful, even when I was struggling. I learned a lot and feel much more confident in my coding skills. Highly recommended! ”</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content" style="border-radius: 25px;">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="defaultModalLabel">Get a Free Quote</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="google-form-container">
-                                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJp8A2N_your_google_form_id_here/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                            </div>
-                            <p class="text-center mt-3">Or call us at +91 777 000 5075</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </main>
-
-        <footer id="footer" class="bg-dark text-white py-5 mt-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mb-4 mb-md-0">
-                        <h5>SNDK Technologies</h5>
-                        <p>Leading web design and development company in Pune, India.</p>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-map-marker-alt"></i> Your Office Address, Pune, India</li>
-                            <li><i class="fas fa-phone"></i> +91 777 000 5075</li>
-                            <li><i class="fas fa-envelope"></i> info@sndktech.com</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 mb-4 mb-md-0">
-                        <h5>Quick Links</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white-50">Home</a></li>
-                            <li><a href="#" class="text-white-50">Services</a></li>
-                            <li><a href="#" class="text-white-50">About Us</a></li>
-                            <li><a href="#" class="text-white-50">Portfolio</a></li>
-                            <li><a href="#" class="text-white-50">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Follow Us</h5>
-                        <ul class="social-icons list-unstyled d-flex">
-                            <li class="mr-3"><a href="#" class="text-white-50"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="mr-3"><a href="#" class="text-white-50"><i class="fab fa-twitter"></i></a></li>
-                            <li class="mr-3"><a href="#" class="text-white-50"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#" class="text-white-50"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-12 text-center">
-                        <p class="mb-0 text-white-50">&copy; <script>document.write(new Date().getFullYear())</script> SNDK Technologies. All Rights Reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
+    <!-- Spline Background Container - This holds the full-screen Spline scene -->
+    <div class="spline-background-container">
+        <spline-viewer url="https://prod.spline.design/Zwc90nifzhun45yZ/scene.splinecode"></spline-viewer>
+        <!-- Optional: An overlay to make text more readable on top of the Spline background -->
+        <div class="spline-overlay"></div>
     </div>
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
-    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
-    <script src="vendor/popper/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="vendor/common/common.min.js"></script>
-    <script src="vendor/jquery.validation/jquery.validate.min.js"></script>
-    <script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-    <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
-    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
-    <script src="vendor/isotope/jquery.isotope.min.js"></script>
-    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="vendor/vide/jquery.vide.min.js"></script>
-    <script src="vendor/vivus/vivus.min.js"></script>
-    <script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-    <script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
+    <!-- Header and Navigation -->
+    <header class="bg-gray-900 text-white py-4 shadow-lg sticky top-0 z-50 bg-opacity-90">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <!-- Portfolio Title / Your Name -->
+            <h1 class="text-3xl font-bold text-indigo-300 mb-2 md:mb-0">Suhana Tiwari</h1>
+            <!-- Navigation Menu -->
+            <nav aria-label="Main Navigation">
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to About section">About</a></li>
+                    <li><a href="#skills" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Skills section">Skills</a></li>
+                    <li><a href="#projects" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Projects section">Projects</a></li>
+                    <li><a href="#certifications" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Certifications section">Certifications</a></li>
+                    <li><a href="#contact" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Contact section">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <script src="js/theme.js"></script>
+    <!-- Hero Section - First impression of your portfolio -->
+    <section id="hero" class="py-20 md:py-32 text-center shadow-inner rounded-b-3xl bg-gradient-to-r from-indigo-600 to-purple-700 text-white bg-opacity-90">
+        <div class="container mx-auto px-4">
+            <!-- Main Headline with dynamic role -->
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-4">
+                Suhana Tiwari | <span class="text-yellow-300"> AI/ML Developer & IoT Enthusiast</span>
+            </h2>
+            <!-- Catchy Tagline -->
+            <p class="text-xl md:text-2xl mb-8 opacity-90">
+                Innovating at the intersection of Artificial Intelligence, Machine Learning, and the Internet of Things.
+            </p>
+            <!-- Call to Action Button -->
+            <a href="#projects" class="bg-white text-indigo-700 hover:bg-indigo-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105" aria-label="Explore my work projects">
+                Explore My Work <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
 
-    <script src="js/custom.js"></script>
+    <!-- About Me Section - Introduce yourself and your professional journey -->
+    <section id="about" class="py-16 md:py-24 bg-white rounded-xl shadow-lg my-8 mx-4 md:mx-auto max-w-6xl bg-opacity-95">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                <!-- Professional Photo -->
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <img src="https://placehold.co/400x400/6366F1/FFFFFF?text=Suhana+Tiwari" alt="Suhana Tiwari's Professional Photo" class="rounded-full shadow-xl w-48 h-48 mx-auto md:mx-0 object-cover border-4 border-indigo-300">
+                </div>
+                <!-- About Me Text Content -->
+                <div class="md:w-2/3 text-lg leading-relaxed text-gray-700">
+                    <p class="mb-4">
+                        Welcome to my portfolio! I am <strong class="text-indigo-600">Suhana Tiwari</strong>, a passionate and results-driven <strong class="text-indigo-600">AI/ML Developer and IoT Enthusiast</strong> with a strong foundation in leveraging cutting-edge technologies to solve complex problems. My journey into these fields was fueled by a desire to innovate and create impactful solutions that bridge the digital and physical worlds.
+                    </p>
+                    <p class="mb-4">
+                        My expertise spans across developing intelligent systems, crafting robust software solutions, and building interconnected IoT devices. I thrive on bringing ideas to life through code and hardware, always aiming for efficiency, scalability, and user-centricity.
+                    </p>
+                    <p>
+                        My core values revolve around continuous learning, collaborative problem-solving, and delivering measurable value. I thrive in dynamic environments where I can apply my expertise to contribute to meaningful projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="js/theme.init.js"></script>
+    <!-- Skills Section - Detail your technical and soft skills -->
+    <section id="skills" class="py-16 md:py-24 bg-gray-100 rounded-xl shadow-lg my-8 mx-4 md:mx-auto max-w-6xl bg-opacity-95">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Skills & Expertise</h2>
+            <p class="text-center text-lg mb-10 text-gray-600">
+                My proficiency is backed by rigorous training and practical application in AI/ML, Software Development, and IoT.
+            </p>
 
-    <script>
-        $(document).ready(function(){
-            // Initialize the carousel
-            $('#myCarousel').carousel({
-                interval: 3000 // Change slide every 3 seconds
-            });
-        });
-    </script>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Skill Category 1: AI & Machine Learning -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-red-100">
+                    <h3 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+                        <i class="fas fa-brain mr-3 text-red-500"></i> AI & Machine Learning
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Deep Learning:</strong> TensorFlow, Keras, PyTorch for neural networks.</li>
+                        <li><strong>Computer Vision:</strong> Image recognition, object detection (OpenCV).</li>
+                        <li><strong>Natural Language Processing (NLP):</strong> Text analysis, sentiment analysis.</li>
+                        <li><strong>Predictive Modeling:</strong> Regression, classification, clustering.</li>
+                        <li><strong>Data Preprocessing:</strong> Feature engineering, data augmentation.</li>
+                        <li><strong>Model Deployment:</strong> REST APIs, Docker.</li>
+                        <li><strong>Reinforcement Learning:</strong> Basics and application in simulations.</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 2: Software Development -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-blue-100">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+                        <i class="fas fa-code mr-3 text-blue-500"></i> Software Development
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Python:</strong> Flask, Django, Data Science libraries (Pandas, NumPy).</li>
+                        <li><strong>JavaScript:</strong> Node.js, React, Frontend frameworks.</li>
+                        <li><strong>Cloud Platforms:</strong> AWS, Google Cloud Platform (GCP), Azure.</li>
+                        <li><strong>Database Management:</strong> SQL (PostgreSQL, MySQL), NoSQL (MongoDB).</li>
+                        <li><strong>API Development:</strong> RESTful APIs, GraphQL.</li>
+                        <li><strong>Version Control:</strong> Git, GitHub.</li>
+                        <li><strong>Containerization:</strong> Docker, Kubernetes.</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 3: IoT & Embedded Systems -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-green-100">
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+                        <i class="fas fa-microchip mr-3 text-green-500"></i> IoT & Embedded Systems
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Microcontrollers:</strong> Arduino, ESP32, Raspberry Pi programming.</li>
+                        <li><strong>Sensor Integration:</strong> Data acquisition from various sensors.</li>
+                        <li><strong>Communication Protocols:</strong> MQTT, HTTP, Bluetooth, Wi-Fi.</li>
+                        <li><strong>Cloud Integration:</strong> Connecting IoT devices to cloud platforms (AWS IoT, Google Cloud IoT Core).</li>
+                        <li><strong>Edge Computing:</strong> Processing data closer to the source.</li>
+                        <li><strong>Firmware Development:</strong> C/C++ for embedded systems.</li>
+                        <li><strong>Data Streaming:</strong> Real-time data processing from IoT devices.</li>
+                    </ul>
+                </div>
+
+                <!-- General Skills -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-yellow-100 col-span-1 md:col-span-2 lg:col-span-3">
+                    <h3 class="text-2xl font-semibold mb-4 text-yellow-700 flex items-center">
+                        <i class="fas fa-lightbulb mr-3 text-yellow-500"></i> General Professional Skills
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <li><strong>Problem-Solving:</strong> Analytical and creative approach to challenges.</li>
+                        <li><strong>Critical Thinking:</strong> Evaluating information and making informed decisions.</li>
+                        <li><strong>Communication:</strong> Clear and concise verbal and written communication.</li>
+                        <li><strong>Collaboration:</strong> Effective teamwork and cross-functional cooperation.</li>
+                        <li><strong>Adaptability:</strong> Thriving in fast-paced and evolving environments.</li>
+                        <li><strong>Continuous Learning:</strong> Committed to staying updated with industry trends.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / Case Studies Section - Showcase your work and achievements -->
+    <section id="projects" class="py-16 md:py-24 bg-white rounded-xl shadow-lg my-8 mx-4 md:mx-auto max-w-6xl bg-opacity-95">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">My Projects & Interactive Showcase</h2>
+            <p class="text-center text-lg mb-10 text-gray-600">
+                Here are some of my key projects, demonstrating the practical application of my skills in AI/ML, Software Development, and IoT.
+            </p>
+
+            <!-- Project Item 1: AI/ML - Real-time Object Detection for Security -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 border border-red-100 hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold mb-3 text-red-700">Project: Real-time Object Detection for Security Surveillance</h3>
+                <p class="text-gray-700 mb-4">
+                    <strong>Role:</strong> AI/ML Developer <br>
+                    <strong>Challenge:</strong> Develop an intelligent surveillance system capable of identifying specific objects (e.g., unauthorized personnel, suspicious packages) in live video feeds to enhance security.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Approach:</strong> Built a deep learning model using TensorFlow and Keras, trained on a custom dataset of security footage. Integrated the model with a live video stream for real-time inference. Implemented alert mechanisms for detected anomalies.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Skills Applied:</strong> Deep Learning (TensorFlow, Keras), Computer Vision (OpenCV), Python, Data Augmentation, Model Deployment.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Solution & Results:</strong> Deployed a robust object detection system with 92% accuracy in identifying target objects. The system significantly <strong class="text-green-600">reduced false alarms by 40%</strong> and improved response times for security personnel.
+                </p>
+                <div class="mt-4">
+                    <img src="https://placehold.co/600x350/F87171/FFFFFF?text=Object+Detection+Screenshot" alt="Object Detection Screenshot" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
+                    <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View full case study for Real-time Object Detection">View Project Details (Link coming soon)</a>
+                </div>
+            </div>
+
+            <!-- Project Item 2: Developer - SaaS Platform for Project Management -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 border border-blue-100 hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold mb-3 text-blue-700">Project: Collaborative SaaS Platform for Agile Project Management</h3>
+                <p class="text-gray-700 mb-4">
+                    <strong>Role:</strong> Full-stack Developer <br>
+                    <strong>Challenge:</strong> Design and develop a scalable web-based platform to facilitate agile project management for distributed teams, including task tracking, communication, and reporting features.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Approach:</strong> Developed the backend using Python (Django REST Framework) with a PostgreSQL database, and the frontend with React. Implemented real-time updates using WebSockets and integrated third-party APIs for enhanced functionality. Deployed on AWS.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Skills Applied:</strong> Python (Django), React, PostgreSQL, RESTful APIs, AWS Deployment, Git, UI/UX Principles.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Solution & Results:</strong> Launched a user-friendly SaaS platform that improved team collaboration by <strong class="text-green-600">25%</strong> and streamlined project workflows, leading to a <strong class="text-green-600">15% reduction in project delays</strong> for pilot teams.
+                </p>
+                <div class="mt-4">
+                    <img src="https://placehold.co/600x350/60A5FA/FFFFFF?text=SaaS+Platform+Mockup" alt="SaaS Platform Mockup" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
+                    <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View live demo of SaaS Platform">View Live Demo (Link coming soon)</a>
+                </div>
+            </div>
+
+            <!-- Project Item 3: IoT - Smart Home Energy Monitoring System -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 border border-green-100 hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold mb-3 text-green-700">Project: Smart Home Energy Monitoring System with Predictive Analytics</h3>
+                <p class="text-gray-700 mb-4">
+                    <strong>Role:</strong> IoT Developer <br>
+                    <strong>Challenge:</strong> Create an IoT system to monitor household energy consumption in real-time and provide predictive insights to help users reduce their electricity bills.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Approach:</strong> Used ESP32 microcontrollers to collect energy data from smart meters, transmitted via MQTT to a cloud platform (Google Cloud IoT Core). Developed a Python-based backend to analyze data and a simple web dashboard to visualize consumption and predictions.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Skills Applied:</strong> ESP32 Programming (C++), MQTT, Google Cloud IoT Core, Python (Data Analysis), Web Development (Flask), Data Visualization.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Solution & Results:</strong> Successfully deployed a prototype system that provided accurate real-time energy data. Users of the prototype reported an average <strong class="text-green-600">10-15% reduction in energy consumption</strong> due to actionable insights.
+                </p>
+                <div class="mt-4">
+                    <img src="https://placehold.co/600x350/4ADE80/FFFFFF?text=IoT+Dashboard+Screenshot" alt="IoT Dashboard Screenshot" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
+                    <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View project repository for Smart Home Energy System">View Project Repository (Link coming soon)</a>
+                </div>
+            </div>
+
+            <!-- Interactive 3D Spline Showcase - This is now a regular project item -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 border border-indigo-100 hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold mb-3 text-indigo-700">Interactive 3D Showcase: [Your Spline Scene Title]</h3>
+                <p class="text-gray-700 mb-4">
+                    This interactive 3D model, created using Spline, demonstrates my ability to craft engaging and dynamic digital experiences. It could be a product prototype, a data visualization concept, or an abstract art piece. Interact with it to explore!
+                </p>
+                <div class="spline-container relative w-full rounded-lg shadow-lg overflow-hidden border border-indigo-200">
+                    <!-- The Spline Viewer itself -->
+                    <spline-viewer url="https://prod.spline.design/Zwc90nifzhun45yZ/scene.splinecode"></spline-viewer>
+                    <!-- Loading overlay for better UX -->
+                    <div id="spline-loading" class="absolute inset-0 bg-gray-200 bg-opacity-75 flex items-center justify-center text-gray-800 text-lg font-semibold rounded-lg transition-opacity duration-500">
+                        <i class="fas fa-spinner fa-spin mr-2"></i> Loading 3D Scene...
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">
+                    *Note: The 3D scene may take a moment to load depending on its complexity and your internet connection.
+                </p>
+            </div>
+
+            <!-- JavaScript to hide loading overlay once Spline is ready (basic example) -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const splineViewer = document.querySelector('spline-viewer');
+                    const loadingOverlay = document.getElementById('spline-loading');
+
+                    if (splineViewer && loadingOverlay) {
+                        // A simple timeout is used here as the spline-viewer component
+                        // does not emit a standard 'ready' event that is easily accessible.
+                        // For more complex loading logic, you might need to explore
+                        // Spline's specific API or check for the presence of the canvas element.
+                        setTimeout(() => {
+                            loadingOverlay.classList.add('fade-out'); // Start fade out
+                            loadingOverlay.addEventListener('transitionend', () => {
+                                loadingOverlay.classList.add('hidden-after-fade'); // Hide completely after fade
+                            }, { once: true }); // Ensure listener only runs once
+                        }, 3000); // Hide after 3 seconds, adjust as needed
+                    } else if (loadingOverlay) {
+                        // If splineViewer element is not found, hide loading overlay anyway
+                        loadingOverlay.classList.add('hidden-after-fade');
+                        console.warn("Spline viewer element not found. Check your HTML structure.");
+                    }
+                });
+            </script>
+
+            <!-- Add more project items as needed -->
+
+        </div>
+    </section>
+
+    <!-- Certifications Section - Highlight your professional credentials -->
+    <section id="certifications" class="py-16 md:py-24 bg-gray-100 rounded-xl shadow-lg my-8 mx-4 md:mx-auto max-w-6xl bg-opacity-95">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">My Google Professional Certifications</h2>
+            <p class="text-center text-lg mb-10 text-gray-600">
+                My commitment to professional development is underscored by these industry-recognized credentials from Google.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Google Data Analytics Professional Certificate -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-indigo-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/4F46E5/FFFFFF?text=DA" alt="Google Data Analytics Badge" class="w-16 h-16 mr-4 rounded-full">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-indigo-700">Google Data Analytics Professional Certificate</h3>
+                            <p class="text-gray-600">Issued by Google (via Coursera)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        This certificate validated my skills in data collection, cleaning, analysis, visualization, and storytelling using tools like SQL, R, and Tableau.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 text-sm mb-4">
+                        <li><strong>Key Skills:</strong> SQL, R, Tableau, Data Cleaning, Statistical Analysis, Data Storytelling.</li>
+                        <li><strong>Completion Date:</strong> Month, Year</li>
+                    </ul>
+                    <a href="[Link to your Credly badge for Data Analytics]" target="_blank" class="text-indigo-600 hover:underline font-medium" aria-label="Verify Google Data Analytics Certificate">
+                        Verify Credential <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Google UX Design Professional Certificate -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-purple-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/8B5CF6/FFFFFF?text=UX" alt="Google UX Design Badge" class="w-16 h-16 mr-4 rounded-full">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-purple-700">Google UX Design Professional Certificate</h3>
+                            <p class="text-gray-600">Issued by Google (via Coursera)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Focused on user-centered design principles, from research and ideation to wireframing, prototyping, and usability testing with Figma and Adobe XD.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 text-sm mb-4">
+                        <li><strong>Key Skills:</strong> User Research, Wireframing, Prototyping, Usability Testing, Figma, Adobe XD.</li>
+                        <li><strong>Completion Date:</strong> Month, Year</li>
+                    </ul>
+                    <a href="[Link to your Credly badge for UX Design]" target="_blank" class="text-purple-600 hover:underline font-medium" aria-label="Verify Google UX Design Certificate">
+                        Verify Credential <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Google Project Management Professional Certificate -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-green-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/10B981/FFFFFF?text=PM" alt="Google Project Management Badge" class="w-16 h-16 mr-4 rounded-full">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-green-700">Google Project Management Professional Certificate</h3>
+                            <p class="text-gray-600">Issued by Google (via Coursera)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Mastered Agile, Scrum, and Waterfall methodologies, alongside essential skills in project planning, risk management, and stakeholder communication.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 text-sm mb-4">
+                        <li><strong>Key Skills:</strong> Agile, Scrum, Project Planning, Risk Management, Stakeholder Management.</li>
+                        <li><strong>Completion Date:</strong> Month, Year</li>
+                    </ul>
+                    <a href="[Link to your Credly badge for Project Management]" target="_blank" class="text-green-600 hover:underline font-medium" aria-label="Verify Google Project Management Certificate">
+                        Verify Credential <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Add more Google Certificates as needed (IT Support, Cybersecurity, Digital Marketing, etc.) -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - How to reach you -->
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-indigo-700 to-purple-800 text-white rounded-t-3xl shadow-inner bg-opacity-90">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8">Get in Touch</h2>
+            <p class="text-xl mb-10 opacity-90">
+                I'm always open to new opportunities, collaborations, and discussions. Feel free to reach out!
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
+                <div class="flex items-center text-lg">
+                    <i class="fas fa-envelope text-indigo-300 text-2xl mr-3"></i>
+                    <a href="mailto:your.email@example.com" class="hover:underline" aria-label="Send me an email">your.email@example.com</a>
+                </div>
+                <div class="flex items-center text-lg">
+                    <i class="fab fa-linkedin text-indigo-300 text-2xl mr-3"></i>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="hover:underline" aria-label="Connect with me on LinkedIn">LinkedIn Profile</a>
+                </div>
+                <!-- Add more social links as applicable -->
+                <div class="flex items-center text-lg">
+                    <i class="fab fa-github text-indigo-300 text-2xl mr-3"></i>
+                    <a href="https://github.com/yourusername" target="_blank" class="hover:underline" aria-label="View my GitHub profile">GitHub Profile</a>
+                </div>
+            </div>
+            <!-- Optional: Add a simple contact form here if desired -->
+        </div>
+    </section>
+
+    <!-- Footer - Copyright and acknowledgment -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center bg-opacity-90">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Suhana Tiwari. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with <span class="text-red-500">&hearts;</span> and passion.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
