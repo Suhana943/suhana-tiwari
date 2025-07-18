@@ -3,106 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suhana Tiwari - Portfolio</title>
+    <title>Suhana Tiwari - AI/ML & Software Portfolio</title>
     <!-- Tailwind CSS CDN for utility-first styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter for a clean, modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons (e.g., LinkedIn, GitHub) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Spline Viewer Script - This is crucial for embedding your 3D scene -->
-    <!-- It's placed here in the head to ensure it's loaded before the custom element is used -->
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.32/build/spline-viewer.js"></script>
+    <!-- Three.js CDN for 3D rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <style>
-        /* Custom CSS for base styles and font family */
+        /* Basic styling for the body and canvas */
         body {
             font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            color: #334155; /* Darker text color */
-            /* No background color here, as Spline will be the background */
+            margin: 0;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+            background-color: #1a202c; /* Dark background for contrast with 3D scene */
+            color: #cbd5e0; /* Light text color */
         }
-        /* Ensure spline-viewer takes full available space within its container */
-        spline-viewer {
-            width: 100%;
-            height: 100%;
-            display: block; /* Important to remove extra space below inline elements */
-            /* No border-radius or overflow here, as it's full screen background */
-        }
-        /* Spline Background Container */
-        .spline-background-container {
-            position: fixed; /* Fixes the Spline to the viewport */
+
+        /* Three.js Canvas Container - Full screen background */
+        #threejs-container {
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100vw; /* Full viewport width */
-            height: 100vh; /* Full viewport height */
+            width: 100vw;
+            height: 100vh;
             z-index: -1; /* Send it to the background */
-            pointer-events: none; /* Allow clicks to pass through to elements below */
-            overflow: hidden; /* Hide any overflow from the spline */
+            pointer-events: none; /* Allow clicks to pass through to overlaying content */
+            overflow: hidden;
         }
-        /* Overlay for better text readability on top of Spline */
-        .spline-overlay {
+
+        /* Canvas element itself */
+        #threejs-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Overlay for better text readability on top of 3D scene */
+        .content-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(248, 250, 252, 0.85); /* Light blue-gray with transparency */
-            /* Adjust opacity as needed to balance visibility of Spline and readability of text */
+            /* Adjust opacity as needed to balance visibility of 3D and readability of text */
             pointer-events: none; /* Allow clicks to pass through */
+            z-index: 0; /* Below content, above 3D */
         }
-        /* Content sections need a higher z-index and their own background */
+
+        /* Content sections need their own background and higher z-index */
         section, header, footer {
-            position: relative; /* Needed for z-index to work */
-            z-index: 10; /* Ensure content is above the Spline background */
-            background-color: transparent; /* Start with transparent, apply specific backgrounds to content divs */
+            position: relative;
+            z-index: 10; /* Ensure content is above the 3D background */
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white for readability */
+            border-radius: 0.75rem; /* Consistent rounded corners */
+            margin-bottom: 2rem; /* Spacing between sections */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
         }
-        /* Specific height for the spline container within the project section, if still needed */
-        .spline-container {
-            height: 600px; /* Adjust this height as needed for your Spline scene */
+
+        /* Specific adjustments for header/hero to blend with background */
+        header {
+            background-color: rgba(17, 24, 39, 0.95); /* Darker, semi-transparent header */
+            border-radius: 0; /* No rounded corners for sticky header */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #hero {
+            background: linear-gradient(to right, rgba(79, 70, 229, 0.9), rgba(139, 92, 246, 0.9)); /* Gradient with opacity */
+            color: white;
+            border-radius: 0 0 1.5rem 1.5rem; /* Rounded bottom corners for hero */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* General section styling */
+        .portfolio-section {
+            padding: 4rem 1rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            color: #334155;
+        }
+
+        /* Loading overlay styles for the 3D scene */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            min-height: 400px; /* Minimum height for smaller screens */
-            max-height: 80vh; /* Max height relative to viewport height */
-            border-radius: 0.75rem; /* Rounded corners for the viewer */
-            overflow: hidden; /* Hide any overflow */
-        }
-        /* Smooth scroll behavior for navigation links */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Fade-out animation for loading overlay */
-        .fade-out {
-            opacity: 0;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            z-index: 9999;
             transition: opacity 0.5s ease-out;
         }
-        .hidden-after-fade {
-            display: none;
+        #loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .info-box {
+            position: fixed; /* Changed to fixed to stay visible regardless of scroll */
+            bottom: 1rem; /* Position at bottom left */
+            left: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            z-index: 100;
+            pointer-events: none; /* Allow interaction with 3D scene */
+        }
+         /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Spline Background Container - This holds the full-screen Spline scene -->
-    <div class="spline-background-container">
-        <spline-viewer url="https://prod.spline.design/Zwc90nifzhun45yZ/scene.splinecode"></spline-viewer>
-        <!-- Optional: An overlay to make text more readable on top of the Spline background -->
-        <div class="spline-overlay"></div>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Loading 3D Scene...</p>
+    </div>
+
+    <!-- Three.js Canvas Container -->
+    <div id="threejs-container">
+        <canvas id="threejs-canvas"></canvas>
+    </div>
+
+    <!-- Content Overlay (for readability over 3D background) -->
+    <div class="content-overlay"></div>
+
+    <!-- Info Box for 3D interaction -->
+    <div class="info-box">
+        Drag mouse on the 3D background to rotate the scene.
     </div>
 
     <!-- Header and Navigation -->
-    <header class="bg-gray-900 text-white py-4 shadow-lg sticky top-0 z-50 bg-opacity-90">
+    <header class="py-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <!-- Portfolio Title / Your Name -->
             <h1 class="text-3xl font-bold text-indigo-300 mb-2 md:mb-0">Suhana Tiwari</h1>
-            <!-- Navigation Menu -->
             <nav aria-label="Main Navigation">
                 <ul class="flex space-x-6">
                     <li><a href="#about" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to About section">About</a></li>
                     <li><a href="#skills" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Skills section">Skills</a></li>
+                    <li><a href="#experience" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Experience section">Experience</a></li>
                     <li><a href="#projects" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Projects section">Projects</a></li>
-                    <li><a href="#certifications" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Certifications section">Certifications</a></li>
+                    <li><a href="#education" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Education & Certifications section">Education</a></li>
                     <li><a href="#contact" class="hover:text-indigo-400 transition-colors duration-300" aria-label="Go to Contact section">Contact</a></li>
                 </ul>
             </nav>
@@ -110,42 +189,37 @@
     </header>
 
     <!-- Hero Section - First impression of your portfolio -->
-    <section id="hero" class="py-20 md:py-32 text-center shadow-inner rounded-b-3xl bg-gradient-to-r from-indigo-600 to-purple-700 text-white bg-opacity-90">
+    <section id="hero" class="py-20 md:py-32 text-center shadow-inner rounded-b-3xl">
         <div class="container mx-auto px-4">
-            <!-- Main Headline with dynamic role -->
             <h2 class="text-4xl md:text-6xl font-extrabold mb-4">
-                Suhana Tiwari | <span class="text-yellow-300"> AI/ML Developer & IoT Enthusiast</span>
+                Suhana Tiwari | <span class="text-yellow-300"> AI/ML Developer & Innovator</span>
             </h2>
-            <!-- Catchy Tagline -->
             <p class="text-xl md:text-2xl mb-8 opacity-90">
-                Innovating at the intersection of Artificial Intelligence, Machine Learning, and the Internet of Things.
+                Building intelligent systems and driving impact through cutting-edge technology.
             </p>
-            <!-- Call to Action Button -->
             <a href="#projects" class="bg-white text-indigo-700 hover:bg-indigo-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105" aria-label="Explore my work projects">
-                Explore My Work <i class="fas fa-arrow-right ml-2"></i>
+                View My Projects <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
     </section>
 
     <!-- About Me Section - Introduce yourself and your professional journey -->
-    <section id="about" class="py-16 md:py-24 bg-white rounded-xl shadow-lg my-8 mx-4 md:mx-auto max-w-6xl bg-opacity-95">
+    <section id="about" class="portfolio-section">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">About Me</h2>
             <div class="flex flex-col md:flex-row items-center md:space-x-12">
-                <!-- Professional Photo -->
                 <div class="md:w-1/3 mb-8 md:mb-0">
                     <img src="https://placehold.co/400x400/6366F1/FFFFFF?text=Suhana+Tiwari" alt="Suhana Tiwari's Professional Photo" class="rounded-full shadow-xl w-48 h-48 mx-auto md:mx-0 object-cover border-4 border-indigo-300">
                 </div>
-                <!-- About Me Text Content -->
                 <div class="md:w-2/3 text-lg leading-relaxed text-gray-700">
                     <p class="mb-4">
-                        Welcome to my portfolio! I am <strong class="text-indigo-600">Suhana Tiwari</strong>, a passionate and results-driven <strong class="text-indigo-600">AI/ML Developer and IoT Enthusiast</strong> with a strong foundation in leveraging cutting-edge technologies to solve complex problems. My journey into these fields was fueled by a desire to innovate and create impactful solutions that bridge the digital and physical worlds.
+                        Hello! I'm <strong class="text-indigo-600">Suhana Tiwari</strong>, an aspiring AI/ML Developer with a strong foundation in software engineering and a passion for building innovative solutions. My journey is driven by curiosity and a commitment to leveraging technology to solve complex, real-world problems.
                     </p>
                     <p class="mb-4">
-                        My expertise spans across developing intelligent systems, crafting robust software solutions, and building interconnected IoT devices. I thrive on bringing ideas to life through code and hardware, always aiming for efficiency, scalability, and user-centricity.
+                        I specialize in developing intelligent systems, from machine learning models that extract actionable insights to robust software applications that power seamless user experiences. I thrive in environments that encourage continuous learning, collaborative problem-solving, and impactful contributions.
                     </p>
                     <p>
-                        My core values revolve around continuous learning, collaborative problem-solving, and delivering measurable value. I thrive in dynamic environments where I can apply my expertise to contribute to meaningful projects.
+                        My goal is to contribute to projects that push the boundaries of technology and create a positive impact on users and society. I am eager to apply my skills and grow within a dynamic and forward-thinking organization.
                     </p>
                 </div>
             </div>
@@ -153,290 +227,236 @@
     </section>
 
     <!-- Skills Section - Detail your technical and soft skills -->
-    <section id="skills" class="py-16 md:py-24 bg-gray-100 rounded-xl shadow-lg my-8 mx-4 md:mx-auto max-w-6xl bg-opacity-95">
+    <section id="skills" class="portfolio-section bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Skills & Expertise</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Technical Skills</h2>
             <p class="text-center text-lg mb-10 text-gray-600">
-                My proficiency is backed by rigorous training and practical application in AI/ML, Software Development, and IoT.
+                A comprehensive overview of my technical proficiencies and tools.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Skill Category 1: AI & Machine Learning -->
+                <!-- Skill Category 1: Programming Languages -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-blue-100">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+                        <i class="fas fa-code mr-3 text-blue-500"></i> Languages
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Python:</strong> Advanced (Data Science, ML, Web Dev)</li>
+                        <li><strong>Java:</strong> Intermediate (Backend, Android)</li>
+                        <li><strong>JavaScript:</strong> Intermediate (Node.js, React)</li>
+                        <li><strong>SQL:</strong> Proficient (PostgreSQL, MySQL)</li>
+                        <li><strong>C/C++:</strong> Basics (Embedded Systems)</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 2: AI & Machine Learning -->
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-red-100">
                     <h3 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
                         <i class="fas fa-brain mr-3 text-red-500"></i> AI & Machine Learning
                     </h3>
                     <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li><strong>Deep Learning:</strong> TensorFlow, Keras, PyTorch for neural networks.</li>
-                        <li><strong>Computer Vision:</strong> Image recognition, object detection (OpenCV).</li>
-                        <li><strong>Natural Language Processing (NLP):</strong> Text analysis, sentiment analysis.</li>
-                        <li><strong>Predictive Modeling:</strong> Regression, classification, clustering.</li>
-                        <li><strong>Data Preprocessing:</strong> Feature engineering, data augmentation.</li>
-                        <li><strong>Model Deployment:</strong> REST APIs, Docker.</li>
-                        <li><strong>Reinforcement Learning:</strong> Basics and application in simulations.</li>
+                        <li><strong>Frameworks:</strong> TensorFlow, Keras, PyTorch, Scikit-learn</li>
+                        <li><strong>Domains:</strong> Computer Vision, NLP, Predictive Modeling</li>
+                        <li><strong>Techniques:</strong> Deep Learning (CNNs, RNNs), Regression, Classification, Clustering</li>
+                        <li><strong>Tools:</strong> Jupyter Notebooks, Google Colab</li>
                     </ul>
                 </div>
 
-                <!-- Skill Category 2: Software Development -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-blue-100">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
-                        <i class="fas fa-code mr-3 text-blue-500"></i> Software Development
+                <!-- Skill Category 3: Web & Cloud Technologies -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-purple-100">
+                    <h3 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+                        <i class="fas fa-cloud mr-3 text-purple-500"></i> Web & Cloud
                     </h3>
                     <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li><strong>Python:</strong> Flask, Django, Data Science libraries (Pandas, NumPy).</li>
-                        <li><strong>JavaScript:</strong> Node.js, React, Frontend frameworks.</li>
-                        <li><strong>Cloud Platforms:</strong> AWS, Google Cloud Platform (GCP), Azure.</li>
-                        <li><strong>Database Management:</strong> SQL (PostgreSQL, MySQL), NoSQL (MongoDB).</li>
-                        <li><strong>API Development:</strong> RESTful APIs, GraphQL.</li>
-                        <li><strong>Version Control:</strong> Git, GitHub.</li>
-                        <li><strong>Containerization:</strong> Docker, Kubernetes.</li>
+                        <li><strong>Frontend:</strong> React, HTML5, CSS3, Tailwind CSS</li>
+                        <li><strong>Backend:</strong> Node.js (Express), Python (Flask, Django)</li>
+                        <li><strong>Databases:</strong> PostgreSQL, MongoDB, Firebase</li>
+                        <li><strong>Cloud:</strong> Google Cloud Platform (GCP), AWS (basics)</li>
+                        <li><strong>APIs:</strong> RESTful API Design & Integration</li>
                     </ul>
                 </div>
 
-                <!-- Skill Category 3: IoT & Embedded Systems -->
+                <!-- Skill Category 4: Tools & Methodologies -->
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-green-100">
                     <h3 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
-                        <i class="fas fa-microchip mr-3 text-green-500"></i> IoT & Embedded Systems
+                        <i class="fas fa-tools mr-3 text-green-500"></i> Tools & Methodologies
                     </h3>
                     <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li><strong>Microcontrollers:</strong> Arduino, ESP32, Raspberry Pi programming.</li>
-                        <li><strong>Sensor Integration:</strong> Data acquisition from various sensors.</li>
-                        <li><strong>Communication Protocols:</strong> MQTT, HTTP, Bluetooth, Wi-Fi.</li>
-                        <li><strong>Cloud Integration:</strong> Connecting IoT devices to cloud platforms (AWS IoT, Google Cloud IoT Core).</li>
-                        <li><strong>Edge Computing:</strong> Processing data closer to the source.</li>
-                        <li><strong>Firmware Development:</strong> C/C++ for embedded systems.</li>
-                        <li><strong>Data Streaming:</strong> Real-time data processing from IoT devices.</li>
+                        <li><strong>Version Control:</strong> Git, GitHub</li>
+                        <li><strong>Containerization:</strong> Docker</li>
+                        <li><strong>Project Management:</strong> Agile, Scrum</li>
+                        <li><strong>Data Visualization:</strong> Matplotlib, Seaborn, Tableau (basics)</li>
+                        <li><strong>Operating Systems:</strong> Linux, Windows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (if applicable) -->
+    <section id="experience" class="portfolio-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Work Experience</h2>
+            <div class="space-y-8">
+                <!-- Experience Item 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-indigo-700">Software Development Intern</h3>
+                    <p class="text-lg text-gray-600 mb-2">Tech Solutions Inc. | Mumbai, India</p>
+                    <p class="text-gray-500 text-sm mb-4">May 2024 – August 2024</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Developed a new feature for the company's flagship CRM platform using Python and Django, improving data processing efficiency by <strong>15%</strong>.</li>
+                        <li>Contributed to the design and implementation of RESTful APIs, enhancing system interoperability.</li>
+                        <li>Participated in Agile sprint planning and daily stand-ups, collaborating effectively with a team of 5 engineers.</li>
+                        <li>Wrote comprehensive unit and integration tests, increasing code coverage by <strong>20%</strong>.</li>
                     </ul>
                 </div>
 
-                <!-- General Skills -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-yellow-100 col-span-1 md:col-span-2 lg:col-span-3">
-                    <h3 class="text-2xl font-semibold mb-4 text-yellow-700 flex items-center">
-                        <i class="fas fa-lightbulb mr-3 text-yellow-500"></i> General Professional Skills
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-700 grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <li><strong>Problem-Solving:</strong> Analytical and creative approach to challenges.</li>
-                        <li><strong>Critical Thinking:</strong> Evaluating information and making informed decisions.</li>
-                        <li><strong>Communication:</strong> Clear and concise verbal and written communication.</li>
-                        <li><strong>Collaboration:</strong> Effective teamwork and cross-functional cooperation.</li>
-                        <li><strong>Adaptability:</strong> Thriving in fast-paced and evolving environments.</li>
-                        <li><strong>Continuous Learning:</strong> Committed to staying updated with industry trends.</li>
+                <!-- Experience Item 2 (Add more as needed) -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-indigo-700">AI Research Assistant (Part-time)</h3>
+                    <p class="text-lg text-gray-600 mb-2">University of XYZ | Latur, India</p>
+                    <p class="text-gray-500 text-sm mb-4">Jan 2023 – Dec 2023</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Assisted in the development of a machine learning model for natural language sentiment analysis, achieving <strong>88% accuracy</strong> on a novel dataset.</li>
+                        <li>Preprocessed and cleaned large textual datasets, ensuring data quality for model training.</li>
+                        <li>Researched and implemented various NLP techniques, including tokenization, stemming, and vectorization.</li>
+                        <li>Presented research findings to the academic team, contributing to a published conference paper.</li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- Projects / Case Studies Section - Showcase your work and achievements -->
-    <section id="projects" class="py-16 md:py-24 bg-white rounded-xl shadow-lg my-8 mx-4 md:mx-auto max-w-6xl bg-opacity-95">
+    <section id="projects" class="portfolio-section bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">My Projects & Interactive Showcase</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Key Projects</h2>
             <p class="text-center text-lg mb-10 text-gray-600">
-                Here are some of my key projects, demonstrating the practical application of my skills in AI/ML, Software Development, and IoT.
-            </p>
-
-            <!-- Project Item 1: AI/ML - Real-time Object Detection for Security -->
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 border border-red-100 hover:shadow-xl transition-shadow duration-300">
-                <h3 class="text-2xl font-semibold mb-3 text-red-700">Project: Real-time Object Detection for Security Surveillance</h3>
-                <p class="text-gray-700 mb-4">
-                    <strong>Role:</strong> AI/ML Developer <br>
-                    <strong>Challenge:</strong> Develop an intelligent surveillance system capable of identifying specific objects (e.g., unauthorized personnel, suspicious packages) in live video feeds to enhance security.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Approach:</strong> Built a deep learning model using TensorFlow and Keras, trained on a custom dataset of security footage. Integrated the model with a live video stream for real-time inference. Implemented alert mechanisms for detected anomalies.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Skills Applied:</strong> Deep Learning (TensorFlow, Keras), Computer Vision (OpenCV), Python, Data Augmentation, Model Deployment.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Solution & Results:</strong> Deployed a robust object detection system with 92% accuracy in identifying target objects. The system significantly <strong class="text-green-600">reduced false alarms by 40%</strong> and improved response times for security personnel.
-                </p>
-                <div class="mt-4">
-                    <img src="https://placehold.co/600x350/F87171/FFFFFF?text=Object+Detection+Screenshot" alt="Object Detection Screenshot" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
-                    <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View full case study for Real-time Object Detection">View Project Details (Link coming soon)</a>
-                </div>
-            </div>
-
-            <!-- Project Item 2: Developer - SaaS Platform for Project Management -->
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 border border-blue-100 hover:shadow-xl transition-shadow duration-300">
-                <h3 class="text-2xl font-semibold mb-3 text-blue-700">Project: Collaborative SaaS Platform for Agile Project Management</h3>
-                <p class="text-gray-700 mb-4">
-                    <strong>Role:</strong> Full-stack Developer <br>
-                    <strong>Challenge:</strong> Design and develop a scalable web-based platform to facilitate agile project management for distributed teams, including task tracking, communication, and reporting features.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Approach:</strong> Developed the backend using Python (Django REST Framework) with a PostgreSQL database, and the frontend with React. Implemented real-time updates using WebSockets and integrated third-party APIs for enhanced functionality. Deployed on AWS.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Skills Applied:</strong> Python (Django), React, PostgreSQL, RESTful APIs, AWS Deployment, Git, UI/UX Principles.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Solution & Results:</strong> Launched a user-friendly SaaS platform that improved team collaboration by <strong class="text-green-600">25%</strong> and streamlined project workflows, leading to a <strong class="text-green-600">15% reduction in project delays</strong> for pilot teams.
-                </p>
-                <div class="mt-4">
-                    <img src="https://placehold.co/600x350/60A5FA/FFFFFF?text=SaaS+Platform+Mockup" alt="SaaS Platform Mockup" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
-                    <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View live demo of SaaS Platform">View Live Demo (Link coming soon)</a>
-                </div>
-            </div>
-
-            <!-- Project Item 3: IoT - Smart Home Energy Monitoring System -->
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 border border-green-100 hover:shadow-xl transition-shadow duration-300">
-                <h3 class="text-2xl font-semibold mb-3 text-green-700">Project: Smart Home Energy Monitoring System with Predictive Analytics</h3>
-                <p class="text-gray-700 mb-4">
-                    <strong>Role:</strong> IoT Developer <br>
-                    <strong>Challenge:</strong> Create an IoT system to monitor household energy consumption in real-time and provide predictive insights to help users reduce their electricity bills.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Approach:</strong> Used ESP32 microcontrollers to collect energy data from smart meters, transmitted via MQTT to a cloud platform (Google Cloud IoT Core). Developed a Python-based backend to analyze data and a simple web dashboard to visualize consumption and predictions.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Skills Applied:</strong> ESP32 Programming (C++), MQTT, Google Cloud IoT Core, Python (Data Analysis), Web Development (Flask), Data Visualization.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    <strong>Solution & Results:</strong> Successfully deployed a prototype system that provided accurate real-time energy data. Users of the prototype reported an average <strong class="text-green-600">10-15% reduction in energy consumption</strong> due to actionable insights.
-                </p>
-                <div class="mt-4">
-                    <img src="https://placehold.co/600x350/4ADE80/FFFFFF?text=IoT+Dashboard+Screenshot" alt="IoT Dashboard Screenshot" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
-                    <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View project repository for Smart Home Energy System">View Project Repository (Link coming soon)</a>
-                </div>
-            </div>
-
-            <!-- Interactive 3D Spline Showcase - This is now a regular project item -->
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 border border-indigo-100 hover:shadow-xl transition-shadow duration-300">
-                <h3 class="text-2xl font-semibold mb-3 text-indigo-700">Interactive 3D Showcase: [Your Spline Scene Title]</h3>
-                <p class="text-gray-700 mb-4">
-                    This interactive 3D model, created using Spline, demonstrates my ability to craft engaging and dynamic digital experiences. It could be a product prototype, a data visualization concept, or an abstract art piece. Interact with it to explore!
-                </p>
-                <div class="spline-container relative w-full rounded-lg shadow-lg overflow-hidden border border-indigo-200">
-                    <!-- The Spline Viewer itself -->
-                    <spline-viewer url="https://prod.spline.design/Zwc90nifzhun45yZ/scene.splinecode"></spline-viewer>
-                    <!-- Loading overlay for better UX -->
-                    <div id="spline-loading" class="absolute inset-0 bg-gray-200 bg-opacity-75 flex items-center justify-center text-gray-800 text-lg font-semibold rounded-lg transition-opacity duration-500">
-                        <i class="fas fa-spinner fa-spin mr-2"></i> Loading 3D Scene...
-                    </div>
-                </div>
-                <p class="text-sm text-gray-500 mt-2">
-                    *Note: The 3D scene may take a moment to load depending on its complexity and your internet connection.
-                </p>
-            </div>
-
-            <!-- JavaScript to hide loading overlay once Spline is ready (basic example) -->
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const splineViewer = document.querySelector('spline-viewer');
-                    const loadingOverlay = document.getElementById('spline-loading');
-
-                    if (splineViewer && loadingOverlay) {
-                        // A simple timeout is used here as the spline-viewer component
-                        // does not emit a standard 'ready' event that is easily accessible.
-                        // For more complex loading logic, you might need to explore
-                        // Spline's specific API or check for the presence of the canvas element.
-                        setTimeout(() => {
-                            loadingOverlay.classList.add('fade-out'); // Start fade out
-                            loadingOverlay.addEventListener('transitionend', () => {
-                                loadingOverlay.classList.add('hidden-after-fade'); // Hide completely after fade
-                            }, { once: true }); // Ensure listener only runs once
-                        }, 3000); // Hide after 3 seconds, adjust as needed
-                    } else if (loadingOverlay) {
-                        // If splineViewer element is not found, hide loading overlay anyway
-                        loadingOverlay.classList.add('hidden-after-fade');
-                        console.warn("Spline viewer element not found. Check your HTML structure.");
-                    }
-                });
-            </script>
-
-            <!-- Add more project items as needed -->
-
-        </div>
-    </section>
-
-    <!-- Certifications Section - Highlight your professional credentials -->
-    <section id="certifications" class="py-16 md:py-24 bg-gray-100 rounded-xl shadow-lg my-8 mx-4 md:mx-auto max-w-6xl bg-opacity-95">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">My Google Professional Certifications</h2>
-            <p class="text-center text-lg mb-10 text-gray-600">
-                My commitment to professional development is underscored by these industry-recognized credentials from Google.
+                Demonstrating my ability to apply technical skills to solve real-world challenges.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                <!-- Google Data Analytics Professional Certificate -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-indigo-200">
-                    <div class="flex items-center mb-4">
-                        <img src="https://placehold.co/60x60/4F46E5/FFFFFF?text=DA" alt="Google Data Analytics Badge" class="w-16 h-16 mr-4 rounded-full">
-                        <div>
-                            <h3 class="text-2xl font-semibold text-indigo-700">Google Data Analytics Professional Certificate</h3>
-                            <p class="text-gray-600">Issued by Google (via Coursera)</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-4">
-                        This certificate validated my skills in data collection, cleaning, analysis, visualization, and storytelling using tools like SQL, R, and Tableau.
+                <!-- Project Item 1: AI/ML - Real-time Object Detection for Security -->
+                <div class="bg-white p-6 rounded-lg shadow-md border border-red-100 hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-red-700">Real-time Object Detection System</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Role:</strong> Lead AI/ML Developer | <strong>Technologies:</strong> TensorFlow, Keras, OpenCV, Python
                     </p>
-                    <ul class="list-disc list-inside text-gray-700 text-sm mb-4">
-                        <li><strong>Key Skills:</strong> SQL, R, Tableau, Data Cleaning, Statistical Analysis, Data Storytelling.</li>
-                        <li><strong>Completion Date:</strong> Month, Year</li>
-                    </ul>
-                    <a href="[Link to your Credly badge for Data Analytics]" target="_blank" class="text-indigo-600 hover:underline font-medium" aria-label="Verify Google Data Analytics Certificate">
-                        Verify Credential <i class="fas fa-external-link-alt ml-1 text-sm"></i>
-                    </a>
+                    <p class="text-gray-700 mb-4">
+                        Developed a deep learning model for real-time object detection in surveillance footage. Achieved **92% accuracy** in identifying specific objects, significantly reducing false alarms by **40%** and improving security response times.
+                    </p>
+                    <div class="mt-4">
+                        <img src="https://placehold.co/600x350/F87171/FFFFFF?text=Object+Detection" alt="Object Detection Screenshot" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
+                        <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View project details for Real-time Object Detection System">View Project Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+                    </div>
                 </div>
 
-                <!-- Google UX Design Professional Certificate -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-purple-200">
-                    <div class="flex items-center mb-4">
-                        <img src="https://placehold.co/60x60/8B5CF6/FFFFFF?text=UX" alt="Google UX Design Badge" class="w-16 h-16 mr-4 rounded-full">
-                        <div>
-                            <h3 class="text-2xl font-semibold text-purple-700">Google UX Design Professional Certificate</h3>
-                            <p class="text-gray-600">Issued by Google (via Coursera)</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-4">
-                        Focused on user-centered design principles, from research and ideation to wireframing, prototyping, and usability testing with Figma and Adobe XD.
+                <!-- Project Item 2: Full-stack Development - Collaborative SaaS Platform -->
+                <div class="bg-white p-6 rounded-lg shadow-md border border-blue-100 hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-blue-700">Collaborative Project Management Platform</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Role:</strong> Full-stack Developer | <strong>Technologies:</strong> React, Django, PostgreSQL, AWS
                     </p>
-                    <ul class="list-disc list-inside text-gray-700 text-sm mb-4">
-                        <li><strong>Key Skills:</strong> User Research, Wireframing, Prototyping, Usability Testing, Figma, Adobe XD.</li>
-                        <li><strong>Completion Date:</strong> Month, Year</li>
-                    </ul>
-                    <a href="[Link to your Credly badge for UX Design]" target="_blank" class="text-purple-600 hover:underline font-medium" aria-label="Verify Google UX Design Certificate">
-                        Verify Credential <i class="fas fa-external-link-alt ml-1 text-sm"></i>
-                    </a>
+                    <p class="text-gray-700 mb-4">
+                        Designed and implemented a scalable web platform for agile project management. Improved team collaboration by **25%** and reduced project delays by **15%** through real-time task tracking and communication features.
+                    </p>
+                    <div class="mt-4">
+                        <img src="https://placehold.co/600x350/60A5FA/FFFFFF?text=SaaS+Platform" alt="SaaS Platform Mockup" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
+                        <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View live demo of Collaborative Project Management Platform">View Live Demo <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+                    </div>
                 </div>
 
-                <!-- Google Project Management Professional Certificate -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-green-200">
-                    <div class="flex items-center mb-4">
-                        <img src="https://placehold.co/60x60/10B981/FFFFFF?text=PM" alt="Google Project Management Badge" class="w-16 h-16 mr-4 rounded-full">
-                        <div>
-                            <h3 class="text-2xl font-semibold text-green-700">Google Project Management Professional Certificate</h3>
-                            <p class="text-gray-600">Issued by Google (via Coursera)</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-4">
-                        Mastered Agile, Scrum, and Waterfall methodologies, alongside essential skills in project planning, risk management, and stakeholder communication.
+                <!-- Project Item 3: IoT & Data Analytics - Smart Energy Monitoring -->
+                <div class="bg-white p-6 rounded-lg shadow-md border border-green-100 hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-green-700">Smart Home Energy Monitoring System</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Role:</strong> IoT & Data Engineer | <strong>Technologies:</strong> ESP32, MQTT, GCP IoT Core, Python
                     </p>
-                    <ul class="list-disc list-inside text-gray-700 text-sm mb-4">
-                        <li><strong>Key Skills:</strong> Agile, Scrum, Project Planning, Risk Management, Stakeholder Management.</li>
-                        <li><strong>Completion Date:</strong> Month, Year</li>
-                    </ul>
-                    <a href="[Link to your Credly badge for Project Management]" target="_blank" class="text-green-600 hover:underline font-medium" aria-label="Verify Google Project Management Certificate">
-                        Verify Credential <i class="fas fa-external-link-alt ml-1 text-sm"></i>
-                    </a>
+                    <p class="text-gray-700 mb-4">
+                        Developed an IoT system for real-time energy consumption monitoring with predictive analytics. Users reported an average **10-15% reduction in energy consumption** due to actionable insights from the system.
+                    </p>
+                    <div class="mt-4">
+                        <img src="https://placehold.co/600x350/4ADE80/FFFFFF?text=IoT+Dashboard" alt="IoT Dashboard Screenshot" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
+                        <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View project repository for Smart Home Energy Monitoring System">View Project Repository <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+                    </div>
                 </div>
 
-                <!-- Add more Google Certificates as needed (IT Support, Cybersecurity, Digital Marketing, etc.) -->
+                <!-- Project Item 4: Data Science - Customer Churn Prediction -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8 border border-yellow-100 hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-yellow-700">Customer Churn Prediction Model</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Role:</strong> Data Scientist | <strong>Technologies:</strong> Python (Pandas, Scikit-learn), SQL, Tableau
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Built a predictive model to identify customers at high risk of churn for a retail company. The model achieved **85% accuracy**, enabling targeted retention strategies that reduced monthly churn by **12%**.
+                    </p>
+                    <div class="mt-4">
+                        <img src="https://placehold.co/600x350/FACC15/FFFFFF?text=Churn+Prediction" alt="Churn Prediction Dashboard" class="rounded-lg shadow-md w-full max-w-xl mx-auto">
+                        <a href="#" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="View project details for Customer Churn Prediction Model">View Project Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+                    </div>
+                </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Contact Section - How to reach you -->
-    <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-indigo-700 to-purple-800 text-white rounded-t-3xl shadow-inner bg-opacity-90">
+    <!-- Education & Certifications Section -->
+    <section id="education" class="portfolio-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Education & Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Education Item 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md border border-indigo-200">
+                    <h3 class="text-2xl font-semibold text-indigo-700">Bachelor of Technology in Computer Science</h3>
+                    <p class="text-lg text-gray-600 mb-2">XYZ Institute of Technology | Latur, India</p>
+                    <p class="text-gray-500 text-sm mb-4">Graduated: May 2025</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Relevant Coursework: Data Structures & Algorithms, Operating Systems, Machine Learning, Database Management Systems, Software Engineering.</li>
+                        <li>GPA: [Your GPA, e.g., 3.8/4.0]</li>
+                    </ul>
+                </div>
+
+                <!-- Certification Item 1 (Google Professional Certificate Example) -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md border border-purple-200">
+                    <h3 class="text-2xl font-semibold text-purple-700">Google IT Automation with Python Professional Certificate</h3>
+                    <p class="text-lg text-gray-600 mb-2">Issued by Google (via Coursera)</p>
+                    <p class="text-gray-500 text-sm mb-4">Completed: Month, Year</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Gained expertise in Python for automation, Git, and Linux command line.</li>
+                        <li>Focused on automating IT tasks, managing infrastructure, and troubleshooting.</li>
+                    </ul>
+                    <a href="[Link to your Credly badge or certificate]" target="_blank" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="Verify Google IT Automation Certificate">
+                        Verify Credential <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Certification Item 2 (Another relevant certificate) -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md border border-green-200">
+                    <h3 class="text-2xl font-semibold text-green-700">Machine Learning Specialization</h3>
+                    <p class="text-lg text-gray-600 mb-2">DeepLearning.AI & Stanford Online (via Coursera)</p>
+                    <p class="text-gray-500 text-sm mb-4">Completed: Month, Year</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Deepened understanding of supervised and unsupervised learning, and best practices in ML.</li>
+                        <li>Hands-on experience with TensorFlow and scikit-learn for building ML models.</li>
+                    </ul>
+                    <a href="[Link to your certificate]" target="_blank" class="text-indigo-600 hover:underline mt-2 inline-block" aria-label="Verify Machine Learning Specialization Certificate">
+                        Verify Credential <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-indigo-700 to-purple-800 text-white rounded-t-3xl shadow-inner">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold mb-8">Get in Touch</h2>
             <p class="text-xl mb-10 opacity-90">
-                I'm always open to new opportunities, collaborations, and discussions. Feel free to reach out!
+                I'm actively seeking challenging roles where I can apply my AI/ML and development skills to create impactful solutions.
             </p>
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
                 <div class="flex items-center text-lg">
@@ -453,17 +473,189 @@
                     <a href="https://github.com/yourusername" target="_blank" class="hover:underline" aria-label="View my GitHub profile">GitHub Profile</a>
                 </div>
             </div>
-            <!-- Optional: Add a simple contact form here if desired -->
         </div>
     </section>
 
-    <!-- Footer - Copyright and acknowledgment -->
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center bg-opacity-90">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
         <div class="container mx-auto px-4">
             <p>&copy; 2025 Suhana Tiwari. All rights reserved.</p>
-            <p class="text-sm mt-2">Built with <span class="text-red-500">&hearts;</span> and passion.</p>
+            <p class="text-sm mt-2">Designed for impact.</p>
         </div>
     </footer>
 
+    <script>
+        // Three.js Scene Setup
+        let scene, camera, renderer, cube, bird;
+        let isDragging = false;
+        let previousMousePosition = { x: 0, y: 0 };
+        const canvas = document.getElementById('threejs-canvas');
+        const loadingOverlay = document.getElementById('loading-overlay');
+
+        // Function to initialize the 3D scene
+        function init() {
+            // 1. Create the scene
+            scene = new THREE.Scene();
+
+            // 2. Create the camera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            // 3. Create the renderer
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); // alpha: true for transparent background
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0); // Make background transparent
+
+            // 4. Create geometry (e.g., a cube)
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            const material = new THREE.MeshStandardMaterial({ color: 0x0077ff, metalness: 0.5, roughness: 0.5 });
+            cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+
+            // 5. Create a simple bird model (using basic geometries)
+            bird = new THREE.Group();
+
+            // Body (simple capsule or elongated sphere)
+            const bodyGeometry = new THREE.CapsuleGeometry(0.2, 0.8, 4, 8);
+            const bodyMaterial = new THREE.MeshStandardMaterial({ color: 0xffd700, metalness: 0.1, roughness: 0.7 }); // Gold color
+            const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+            body.rotation.z = Math.PI / 2; // Orient horizontally
+            bird.add(body);
+
+            // Head (sphere)
+            const headGeometry = new THREE.SphereGeometry(0.25, 16, 16);
+            const headMaterial = new THREE.MeshStandardMaterial({ color: 0xffd700, metalness: 0.1, roughness: 0.7 });
+            const head = new THREE.Mesh(headGeometry, headMaterial);
+            head.position.x = 0.5;
+            bird.add(head);
+
+            // Beak (cone)
+            const beakGeometry = new THREE.ConeGeometry(0.1, 0.3, 8);
+            const beakMaterial = new THREE.MeshStandardMaterial({ color: 0xffa500, metalness: 0.1, roughness: 0.7 }); // Orange color
+            const beak = new THREE.Mesh(beakGeometry, beakMaterial);
+            beak.rotation.z = -Math.PI / 2;
+            beak.position.set(0.7, 0, 0);
+            bird.add(beak);
+
+            // Wings (flat boxes or thin capsules)
+            const wingGeometry = new THREE.BoxGeometry(0.6, 0.1, 0.3); // Length, Thickness, Width
+            const wingMaterial = new THREE.MeshStandardMaterial({ color: 0x8b4513, metalness: 0.1, roughness: 0.7 }); // SaddleBrown color
+
+            const leftWing = new THREE.Mesh(wingGeometry, wingMaterial);
+            leftWing.position.set(0, 0.3, 0); // Position above body
+            leftWing.rotation.y = Math.PI / 2; // Rotate to be flat
+            bird.add(leftWing);
+
+            const rightWing = leftWing.clone(); // Clone for the other wing
+            rightWing.position.set(0, -0.3, 0);
+            bird.add(rightWing);
+
+            // Set initial position of the bird
+            bird.position.set(3, 1, -5); // Start off-screen
+            bird.scale.set(0.5, 0.5, 0.5); // Make the bird smaller
+            scene.add(bird);
+
+            // Add some light to see the material (MeshStandardMaterial needs light)
+            const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8); // White directional light
+            directionalLight.position.set(0, 1, 1).normalize();
+            scene.add(directionalLight);
+
+            // Event Listeners for mouse interaction on the canvas
+            canvas.addEventListener('mousedown', onMouseDown, false);
+            canvas.addEventListener('mouseup', onMouseUp, false);
+            canvas.addEventListener('mousemove', onMouseMove, false);
+
+            // Handle window resizing
+            window.addEventListener('resize', onWindowResize, false);
+
+            // Hide loading overlay once scene is initialized
+            if (loadingOverlay) {
+                loadingOverlay.classList.add('hidden');
+            }
+        }
+
+        // Animation loop
+        let birdAngle = 0;
+        let birdFlightPath = 0;
+        function animate() {
+            requestAnimationFrame(animate); // Loop the animation
+
+            // Rotate the cube slowly
+            cube.rotation.x += 0.001;
+            cube.rotation.y += 0.001;
+
+            // Animate the bird's wings
+            birdAngle += 0.1;
+            const wingFlap = Math.sin(birdAngle) * 0.5; // Flap amount
+            if (bird.children[3]) bird.children[3].rotation.z = -wingFlap; // Left wing
+            if (bird.children[4]) bird.children[4].rotation.z = wingFlap;  // Right wing
+
+            // Animate bird's flight path
+            birdFlightPath += 0.01;
+            bird.position.x = Math.sin(birdFlightPath * 0.5) * 4;
+            bird.position.y = Math.cos(birdFlightPath * 0.7) * 2 + 1;
+            bird.position.z = Math.sin(birdFlightPath * 0.3) * 3 - 5; // Move slightly into and out of depth
+
+            // Make the bird look at the cube (or a central point)
+            bird.lookAt(cube.position);
+
+            renderer.render(scene, camera); // Render the scene
+        }
+
+        // Handle window resize
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // Mouse interaction functions for camera rotation
+        function onMouseDown(event) {
+            // Only allow dragging if the mouse is over the canvas (3D background)
+            if (event.target === canvas) {
+                isDragging = true;
+                previousMousePosition = {
+                    x: event.clientX,
+                    y: event.clientY
+                };
+            }
+        }
+
+        function onMouseUp(event) {
+            isDragging = false;
+        }
+
+        function onMouseMove(event) {
+            if (!isDragging) return;
+
+            const deltaX = event.clientX - previousMousePosition.x;
+            const deltaY = event.clientY - previousMousePosition.y;
+
+            // Adjust rotation speed
+            const rotationSpeed = 0.005;
+
+            // Rotate the entire scene or a central object
+            // For a background effect, rotating the camera is more intuitive
+            // camera.rotation.y -= deltaX * rotationSpeed;
+            // camera.rotation.x -= deltaY * rotationSpeed;
+            // Or rotate the cube for a more direct interaction
+            cube.rotation.y += deltaX * rotationSpeed;
+            cube.rotation.x += deltaY * rotationSpeed;
+
+            previousMousePosition = {
+                x: event.clientX,
+                y: event.clientY
+            };
+        }
+
+        // Initialize the scene and start the animation loop when the window loads
+        window.onload = function() {
+            init();
+            animate();
+        };
+    </script>
 </body>
 </html>
